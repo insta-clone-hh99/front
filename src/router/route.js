@@ -1,0 +1,30 @@
+import React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Headers from '../components/Headers/Headers';
+import Footer from '../components/Footer/Footer';
+import Home from '../components/Home/Home';
+import DetaliedPage from '../components/Detalie/Detalie';
+import NewPost from '../components/Detalie/Detalie';
+import Login from '../components/Login/Login';
+import SignIn from '../components/Signup/SignIn';
+import Signup from '../components/Signup/Signup';
+
+function App() {
+    const isLoggedIn = true; // You need to define the isLoggedIn variable
+
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={isLoggedIn ? <Home /> : <Login />} />
+                <Route path="/api/posts" element={<DetaliedPage />} />
+                <Route path="/api/posts/new" element={<NewPost />} />
+                <Route path="/api/login" element={<SignIn />} />
+                <Route path="/api/signup" element={<Signup />} />
+            </Routes>
+            <Headers /> {/* Place Headers component outside Routes */}
+            <Footer /> {/* Place Footer component outside Routes */}
+        </BrowserRouter>
+    );
+}
+
+export default App;
