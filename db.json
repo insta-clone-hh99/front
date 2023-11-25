@@ -1,0 +1,28 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "contents": ""
+    },
+    {
+      "content": "asdasd",
+      "id": 2
+    },
+    {
+      "content": "asdasd",
+      "id": 3
+    },
+    {
+      "content": "asdasd",
+      "id": 4
+    },
+    {
+      "content": "rrrrr",
+      "id": 5
+    },
+    {
+      "content": "asdasd",
+      "id": 6
+    }
+  ]
+}

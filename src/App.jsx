@@ -1,13 +1,8 @@
-import React from 'react';
-import Layout from './components/Layout/Layout';
-import { Router } from 'react-router-dom';
-
+import React from 'react'
+import Layout from './components/Layout/Layout'
+import Router from './router/route'
 function App() {
-    return (
-        <Layout>
-            <Router />
-        </Layout>
-    );
+    return <Router />
 }
 
-export default App;
+export default App

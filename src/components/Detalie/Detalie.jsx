@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 function Detalie() {
-    return <div>Detalie</div>;
+    return <div>Detalie</div>
 }
 
-export default Detalie;
+export default Detalie

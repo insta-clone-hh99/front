@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 function DetaliedPage() {
-    return <div>DetaliedPage</div>;
+    return <div>DetaliedPage</div>
 }
 
-export default DetaliedPage;
+export default DetaliedPage

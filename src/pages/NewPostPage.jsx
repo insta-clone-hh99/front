@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 
 function NewPostPage() {
-    return <div>NewPostPage</div>;
+    return <div>NewPostPage</div>
 }
 
-export default NewPostPage;
+export default NewPostPage
