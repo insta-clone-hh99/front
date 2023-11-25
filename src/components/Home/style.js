@@ -4,12 +4,21 @@ export const Wrapper = styled.div`
     display: flex;
     width: 100vw;
     height: 100vh;
+    background-color: black;
 `
-export const LeftWrapper = styled.div`
+export const CenterWrapper = styled.div`
     display: flex;
     width: 70vw;
     margin: 0px 50px;
     flex-direction: column;
+`
+
+export const NavigationBar = styled.div`
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid gray;
+    justify-content: space-between;
+    width: 330px;
 `
 
 export const InputWrapper = styled.div`
@@ -70,4 +79,39 @@ export const RightWrapperHeader = styled.div`
 export const InputStyle = styled.input`
     border: 0px;
     width: 80%;
+`
+
+export const LogoStyle = styled.img`
+    width: 120px;
+    height: 50px;
+    margin: 20px;
+`
+
+export const LogoWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+`
+
+export const NavCategoryStyle = styled.div`
+    display: flex;
+    margin: 0 12px;
+    align-items: center;
+    &:hover {
+        border: 1px solid gray;
+        border-radius: 20px;
+    }
+`
+
+export const NavCategoryTitle = styled.p`
+    color: white;
+    margin-left: 15px;
+`
+
+export const NavImageStyle = styled.img`
+    width: 40px;
+    height: 40px;
+`
+
+export const NavCategoryWrapper = styled.div`
+    margin-bottom: 250px;
 `

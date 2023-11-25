@@ -5,7 +5,7 @@ export default function Post({ post }) {
     return (
         <S.PostWrapper>
             <S.HeaderWrapper>
-                <img src={post.url} alt="엑박" />
+                <img src="/avatar.png" alt="엑박" />
                 <S.PostHeaerWrapper>
                     <span>{post.content}</span>
                     <span>2023-11-24</span>

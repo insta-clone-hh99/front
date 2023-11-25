@@ -4,17 +4,23 @@ import Post from '../Post.jsx/Post'
 import { useMutation, useQuery } from 'react-query'
 import { AddPost, addPost, getPost } from '../API/api'
 import FriendsList from '../FriendsList/FriendsList'
+import Navigation from '../../Navigation/Navigation'
+import { Portal } from 'react-portal'
+import NewPostModal from '../Modal/NewPostModal/NewPostModal'
 
 export default function Home() {
+    const [isOpenFirstModal, setIsOpenFirstModal] = useState(false)
     const [contents, setContents] = useState('')
 
     const testFriends = [
-        { id: 1, nickname: '철수' },
-        { id: 2, nickname: '짱구' },
-        { id: 3, nickname: '영희' },
-        { id: 4, nickname: '훈이' },
-        { id: 5, nickname: '맹구' },
-        { id: 6, nickname: '짱아' },
+        { title: '홈', url: '/home.png' },
+        { title: '검색', url: '/zoom.png' },
+        { title: '탐색 탭', url: '/map2.png' },
+        { title: '릴스', url: '/video.png' },
+        { title: '메시지', url: '/message.png' },
+        { title: '알림', url: '/heart.png' },
+        { title: '만들기', url: '/plus.png' },
+        { title: '프로필', url: '/profile.png' },
     ]
 
     const { data } = useQuery('post', getPost)
@@ -36,18 +42,36 @@ export default function Home() {
         addPostMutation.mutate(newPost)
     }
 
+    const firstModalToggle = () => {
+        setIsOpenFirstModal((prev) => !prev)
+    }
+
     return (
         <S.Wrapper>
-            <S.LeftWrapper>
-                <S.InputWrapper>
-                    <img src="/avatar.png" alt="엑박" />
-                    <S.InputStyle
-                        value={contents}
-                        onChange={onChangeInput}
-                        placeholder="오늘은 무슨 일이 있으셨나요 ?"
-                    />
-                    <button onClick={onClickSubmitBtn}>등록하기</button>
-                </S.InputWrapper>
+            <S.NavigationBar>
+                <S.LogoStyle src="/logo.png" alt="로고" />
+                <S.NavCategoryWrapper>
+                    {testFriends.map((data) => (
+                        <Navigation firstModalToggle={firstModalToggle} data={data} />
+                    ))}
+                </S.NavCategoryWrapper>
+                <div>
+                    <S.NavCategoryStyle>
+                        <S.NavImageStyle src="/threads.png" alt="threads" />
+                        <S.NavCategoryTitle>Threads</S.NavCategoryTitle>
+                    </S.NavCategoryStyle>
+                    <S.NavCategoryStyle>
+                        <S.NavImageStyle src="/more.png" alt="more" />
+                        <S.NavCategoryTitle>더 보기</S.NavCategoryTitle>
+                        {isOpenFirstModal && (
+                            <Portal node={document && document.getElementById('modal-root')}>
+                                <NewPostModal onClose={firstModalToggle} />
+                            </Portal>
+                        )}
+                    </S.NavCategoryStyle>
+                </div>
+            </S.NavigationBar>
+            <S.CenterWrapper>
                 <S.PostStyle>
                     <S.PostHeaderWrapper>
                         <S.TitleAndTimeWrapper>
@@ -57,7 +81,7 @@ export default function Home() {
                         </S.TitleAndTimeWrapper>
                     </S.PostHeaderWrapper>
                 </S.PostStyle>
-            </S.LeftWrapper>
+            </S.CenterWrapper>
             <S.RightWrapper>
                 <S.RightWrapperHeader>
                     <img src="/avatar.png" alt="이미지" />
@@ -66,7 +90,7 @@ export default function Home() {
                 <h3>나의 친구</h3>
                 <S.FriendsListWrapper>
                     {testFriends.map((name) => (
-                        <FriendsList name ={name}/>
+                        <FriendsList name={name} />
                     ))}
                 </S.FriendsListWrapper>
             </S.RightWrapper>
