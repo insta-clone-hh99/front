@@ -107,8 +107,7 @@
 // export default SignIn;
 
 import Styled from "./style";
-import InstagramLogo from "../../assets/insta-rogo.png";
-
+import InstagramLogo from "../../assets/insta-rogo-text.jpeg";
 function SignIn() {
     return (
         <Styled.Content>
