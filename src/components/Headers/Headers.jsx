@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
 function Headers() {
-    return <div>Headers</div>;
+   return <div>instagram</div>;
 }
 
 export default Headers;

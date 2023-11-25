@@ -1,30 +1,28 @@
-import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Headers from '../components/Headers/Headers';
-import Footer from '../components/Footer/Footer';
-import Home from '../components/Home/Home';
-import DetaliedPage from '../components/Detalie/Detalie';
-import NewPost from '../components/Detalie/Detalie';
-import Login from '../components/Login/Login';
-import SignIn from '../components/Signup/SignIn';
-import Signup from '../components/Signup/Signup';
+// import React from "react";
+// import { BrowserRouter, Route, Routes } from "react-router-dom";
+// import Home from '../components/Home/Home';
+// import Detalie from '../components/Detalie/Detalie';
+// import NewPost from '../components/NewPost/NewPost';
+// import SignIn from '../components/SignIn/SignIn';
+// import Signup from '../components/Signup/Signup';
+// import Layout from "../components/Layout/Layout";
 
-function App() {
-    const isLoggedIn = true; // You need to define the isLoggedIn variable
+// function Router() {
+//     const isLoggedIn = true 
 
-    return (
-        <BrowserRouter>
-            <Routes>
-                <Route path="/" element={isLoggedIn ? <Home /> : <Login />} />
-                <Route path="/api/posts" element={<DetaliedPage />} />
-                <Route path="/api/posts/new" element={<NewPost />} />
-                <Route path="/api/login" element={<SignIn />} />
-                <Route path="/api/signup" element={<Signup />} />
-            </Routes>
-            <Headers /> {/* Place Headers component outside Routes */}
-            <Footer /> {/* Place Footer component outside Routes */}
-        </BrowserRouter>
-    );
-}
+//     return (
+//         <BrowserRouter>
+//             <Routes>
+//                 <Route path="/" element={<Layout />}>
+//                     <Route path="/" element={isLoggedIn ? <Home /> : <Login />} />
+//                     <Route path="/api/posts" element={<Detalied />} />
+//                     <Route path="/api/posts/new" element={<NewPost />} />
+//                     <Route path="/api/login" element={<SignIn />} />
+//                     <Route path="/api/signup" element={<Signup />} />
+//                 </Route>
+//             </Routes>
+//         </BrowserRouter>
+//     )
+// }
 
-export default App;
+// export default Router

@@ -3,6 +3,11 @@
     "version": "0.1.0",
     "private": true,
     "dependencies": {
+        "@fortawesome/fontawesome-svg-core": "^version_number",
+        "@fortawesome/free-brands-svg-icons": "^version_number",
+        "@fortawesome/free-regular-svg-icons": "^version_number",
+        "@fortawesome/free-solid-svg-icons": "^version_number",
+        "@fortawesome/react-fontawesome": "^version_number",
         "@reduxjs/toolkit": "^1.9.7",
         "@testing-library/jest-dom": "^5.14.1",
         "@testing-library/react": "^13.0.0",
@@ -17,12 +22,7 @@
         "react-router-dom": "^6.20.0",
         "react-scripts": "5.0.1",
         "styled-components": "^6.1.1",
-        "web-vitals": "^2.1.0",
-        "@fortawesome/react-fontawesome": "^version_number",
-        "@fortawesome/free-brands-svg-icons": "^version_number",
-        "@fortawesome/free-regular-svg-icons": "^version_number",
-        "@fortawesome/fontawesome-svg-core": "^version_number",
-        "@fortawesome/free-solid-svg-icons": "^version_number"
+        "web-vitals": "^2.1.0"
     },
     "scripts": {
         "start": "react-scripts start",
@@ -47,5 +47,8 @@
             "last 1 firefox version",
             "last 1 safari version"
         ]
+    },
+    "devDependencies": {
+        "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
     }
 }

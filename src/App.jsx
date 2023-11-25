@@ -1,13 +1,32 @@
-import React from 'react';
-import Layout from './components/Layout/Layout';
-import { Router } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./components/Home/Home";
+import Detalie from "./components/Detalie/Detalie";
+import NewPost from "./components/NewPost/NewPost";
+import SignIn from "./components/SignIn/SignIn";
+import Signup from "./components/Signup/Signup";
+import Layout from "./components/Layout/Layout";
+import Login from "./components/Login/Login"; // 이 부분 나중에 빼기
 
-function App() {
+function Router() {
+    const isLoggedIn = true;
+
     return (
-        <Layout>
-            <Router />
-        </Layout>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Layout />}>
+                    <Route
+                        path="/"
+                        element={isLoggedIn ? <Home /> : <Login />}
+                    />
+                    <Route path="/api/posts" element={<Detalie />} />
+                    <Route path="/api/posts/new" element={<NewPost />} />
+                    <Route path="/api/login" element={<SignIn />} />
+                    <Route path="/api/signup" element={<Signup />} />
+                </Route>
+            </Routes>
+        </BrowserRouter>
     );
 }
 
-export default App;
+export default Router;
