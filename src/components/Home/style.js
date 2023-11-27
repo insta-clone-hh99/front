@@ -10,7 +10,8 @@ export const CenterWrapper = styled.div`
     display: flex;
     width: 70vw;
     margin: 0px 50px;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
 `
 
 export const NavigationBar = styled.div`
@@ -33,9 +34,10 @@ export const InputWrapper = styled.div`
 export const PostStyle = styled.div`
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 500px;
     height: 200px;
     margin-bottom: 50px;
+    margin-right: 130px;
 `
 
 export const PostContentsWrapper = styled.div`
@@ -48,6 +50,8 @@ export const PostHeaderWrapper = styled.div`
 `
 
 export const TitleAndTimeWrapper = styled.div`
+    width: 630px;
+    height: 100vh;
     display: flex;
     flex-direction: column;
 `
@@ -114,4 +118,9 @@ export const NavImageStyle = styled.img`
 
 export const NavCategoryWrapper = styled.div`
     margin-bottom: 250px;
+`
+
+export const ContentsWrapper = styled.div`
+    display: flex;
+    justify-content: center;
 `
