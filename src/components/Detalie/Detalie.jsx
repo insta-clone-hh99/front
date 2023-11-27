@@ -1,7 +1,8 @@
 import React from 'react'
+import ThirdModal from '../Modal/ThirdPostModal/ThirdPostModal'
 
 function Detalie() {
-    return <div>Detalie</div>
+    return <ThirdModal />
 }
 
 export default Detalie

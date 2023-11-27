@@ -2,11 +2,15 @@ import React, { useState } from 'react'
 import * as S from './style'
 import ThirdPostModal from '../Modal/ThirdPostModal/ThirdPostModal'
 import { Portal } from 'react-portal'
+import { useNavigate } from 'react-router-dom'
 
 export default function Post({ post }) {
     const [isHeart, setIsHeart] = useState(false)
     const [isSaved, setIsSaved] = useState(false)
     const [isOpenThirdModal, setIsOpenThirdModal] = useState(false)
+    const navigate = useNavigate()
+
+    console.log('post', post)
 
     const onClickHeart = () => {
         setIsHeart((prev) => !prev)
@@ -16,8 +20,9 @@ export default function Post({ post }) {
         setIsSaved((prev) => !prev)
     }
 
-    const controlThirdModal = () => {
+    const controlThirdModal = (id) => () => {
         setIsOpenThirdModal((prev) => !prev)
+        navigate(`/posts/${id}`)
     }
 
     return (
@@ -42,8 +47,8 @@ export default function Post({ post }) {
                     <div>
                         {!isHeart && <S.Heart onClick={onClickHeart} size={25} color="white" />}
                         {isHeart && <S.FullHeart onClick={onClickHeart} size={25} color="red" />}
-                        <S.ChatStyle onClick={controlThirdModal} size={25} color="white" />
-                        <S.Comment onClick={controlThirdModal} size={25} color="white" />
+                        <S.ChatStyle onClick={controlThirdModal(post.postId)} size={25} color="white" />
+                        <S.Comment onClick={controlThirdModal(post.postId)} size={25} color="white" />
                     </div>
                     <div>
                         {!isSaved && <S.Save onClick={onClickSave} size={25} color="white" />}

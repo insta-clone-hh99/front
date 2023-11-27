@@ -87,3 +87,5 @@ export const FullHeart = styled(GoHeartFill)`
 export const SaveStyle = styled(BsFillSaveFill)`
     cursor: pointer;
 `
+
+

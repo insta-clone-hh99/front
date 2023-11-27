@@ -16,3 +16,11 @@ export const getPost = () => {
         return response
     } catch (error) {}
 }
+
+export const getOnePostInfo = (postId) => {
+    try {
+        const response = axios.get(`${process.env.REACT_APP_SERVER_URL_1}/posts/${postId}`)
+        
+        return response
+    } catch (error) {}
+}

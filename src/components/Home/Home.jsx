@@ -11,8 +11,7 @@ import NewPostModal from '../Modal/NewPostModal/NewPostModal'
 export default function Home() {
     const [isOpenFirstModal, setIsOpenFirstModal] = useState(false)
 
-
-    const testFriends = [
+    const navigationBar = [
         { title: '홈', url: '/home.png' },
         { title: '검색', url: '/zoom.png' },
         { title: '탐색 탭', url: '/map2.png' },
@@ -21,6 +20,15 @@ export default function Home() {
         { title: '알림', url: '/heart.png' },
         { title: '만들기', url: '/plus.png' },
         { title: '프로필', url: '/profile.png' },
+    ]
+
+    const friednsList = [
+        { name: '신짱구', url: '/jjangu.jpeg' },
+        { name: '전맹구', url: '/maengu.jpeg' },
+        { name: '주훈이', url: '/hun.jpeg' },
+        { name: '박유리', url: '/yuri.jpeg' },
+        { name: '강철수', url: '/cheolsu.jpeg' },
+        { name: '흰둥이', url: '/whitedog.jpeg' },
     ]
 
     const { data } = useQuery('post', getPost)
@@ -36,7 +44,7 @@ export default function Home() {
             <S.NavigationBar>
                 <S.LogoStyle src="/logo.png" alt="로고" />
                 <S.NavCategoryWrapper>
-                    {testFriends.map((data) => (
+                    {navigationBar.map((data) => (
                         <Navigation firstModalToggle={firstModalToggle} data={data} />
                     ))}
                 </S.NavCategoryWrapper>
@@ -69,15 +77,28 @@ export default function Home() {
                     </S.PostStyle>
                     <S.RightWrapper>
                         <S.RightWrapperHeader>
-                            <img src="/avatar.png" alt="이미지" />
-                            <div>닉네임</div>
+                            <S.ImageInfos>
+                                <S.RightProfileImage src="/avatar.png" alt="이미지" />
+                                <S.SubInfoWrapper>
+                                    <S.Myprofile>Ironmin_</S.Myprofile>
+                                    <S.SubInfo>주철민</S.SubInfo>
+                                </S.SubInfoWrapper>
+                            </S.ImageInfos>
+                            <S.ChangeText> 전환 </S.ChangeText>
                         </S.RightWrapperHeader>
-                        <h3>나의 친구</h3>
+                        <S.BodyWrapper>
+                            <S.RecommentText> 회원님을 위한 추천</S.RecommentText>
+                            <S.AllInfo>모두 보기</S.AllInfo>
+                        </S.BodyWrapper>
                         <S.FriendsListWrapper>
-                            {testFriends.map((name) => (
+                            {friednsList.map((name) => (
                                 <FriendsList name={name} />
                             ))}
                         </S.FriendsListWrapper>
+                        <S.Info>소개.도움말.홍보 센터.API 채용 정보.</S.Info>
+                        <S.Info>개인정보처리방침.약관.위치.언어.Meta Verified</S.Info>
+                        <br />
+                        <S.Info>© 2023 INSTAGRAM FROM META</S.Info>
                     </S.RightWrapper>
                 </S.CenterWrapper>
             </S.ContentsWrapper>

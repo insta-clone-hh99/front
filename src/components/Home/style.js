@@ -64,7 +64,7 @@ export const LikeAndCommentWrapper = styled.div`
 export const RightWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    background-color: white;
+    background-color: black;
     width: 270px;
     margin-top: 50px;
     height: 600px;
@@ -77,12 +77,22 @@ export const FriendsListWrapper = styled.div`
 
 export const RightWrapperHeader = styled.div`
     display: flex;
-    margin-left: 20px;
+    justify-content: space-between;
+    align-items: center;
 `
 
 export const InputStyle = styled.input`
     border: 0px;
     width: 80%;
+`
+
+export const Myprofile = styled.span`
+    color: white;
+`
+
+export const ImageInfos = styled.div`
+    display: flex;
+    flex-direction: row;
 `
 
 export const LogoStyle = styled.img`
@@ -91,7 +101,22 @@ export const LogoStyle = styled.img`
     margin: 20px;
 `
 
+export const ChangeText = styled.span`
+    color: #0095f6;
+    font-size: 12px;
+`
+
 export const LogoWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+`
+
+export const SubInfo = styled.span`
+    color: gray;
+    font-size: 12px;
+`
+
+export const SubInfoWrapper = styled.div`
     display: flex;
     flex-direction: column;
 `
@@ -123,4 +148,30 @@ export const NavCategoryWrapper = styled.div`
 export const ContentsWrapper = styled.div`
     display: flex;
     justify-content: center;
+`
+export const BodyWrapper = styled.div`
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    align-items: center;
+`
+
+export const RecommentText = styled.span`
+    color: gray;
+    font-size: 15px;
+    font-weight: bolder;
+`
+
+export const AllInfo = styled.span`
+    color: white;
+    font-size: 12px;
+`
+
+export const RightProfileImage = styled.img`
+    margin-right: 15px;
+`
+
+export const Info = styled.span`
+    color: #737373;
+    font-size: 12px;
 `

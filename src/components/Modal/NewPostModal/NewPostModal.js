@@ -6,6 +6,7 @@ import { Portal } from 'react-portal'
 import SecondModal from '../SecondModal/SecondModal'
 import { useMutation, useQueryClient } from 'react-query'
 import { addPost } from '../../API/api'
+import { v4 as uuidv4 } from 'uuid'
 
 export default function NewPostModal({ setIsOpenFirstModal, onClose }) {
     const [isActive, setIsActive] = useState(false)
@@ -40,6 +41,7 @@ export default function NewPostModal({ setIsOpenFirstModal, onClose }) {
 
     const submitNewPost = () => {
         const newPost = {
+            postId: uuidv4(),
             contents,
             imageUrl,
         }
