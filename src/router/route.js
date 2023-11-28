@@ -7,7 +7,7 @@ import Login from '../components/Login/Login'
 import SignIn from '../components/SignIn/SignIn'
 import Signup from '../components/Signup/Signup'
 import Layout from '../components/Layout/Layout'
-import ThirdModal from '../components/Modal/ThirdPostModal/ThirdPostModal'
+// import ThirdModal from '../components/Modal/ThirdPostModal/ThirdPostModal'
 
 function Router() {
     const isLoggedIn = true // You need to define the isLoggedIn variable
