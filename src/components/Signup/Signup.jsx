@@ -3,7 +3,7 @@ import { useMutation } from 'react-query'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import * as Styled from './style'
-import InstagramLogo from '../../assets/insta-rogo-text.jpeg'
+import InstagramLogo from '../../assets/insta-rogo.png'
 
 function Signup() {
     const [email, setEmail] = useState('')
@@ -169,7 +169,7 @@ function Signup() {
                 <Styled.LinkText1>
                     계정이 있으신가요?
                     <Styled.ButtonAsText>
-                        <Link to="/api/login">로그인</Link>
+                        <Link to="/login">로그인</Link>
                     </Styled.ButtonAsText>
                 </Styled.LinkText1>
             </Styled.LinkText>
