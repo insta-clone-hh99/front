@@ -1,16 +1,18 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
-const Styled = {};
+const Styled = {}
 
 Styled.Content = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 990px;
     border: 1px solid #dbdbdb;
     margin: 0 0 10px 0;
     padding: 10px 0 10px 0;
-`;
+    width: 100vw;
+    background-color: white;
+`
 
 Styled.Lgtitle = styled.div`
     text-align: center;
@@ -18,7 +20,7 @@ Styled.Lgtitle = styled.div`
     margin: 0 0 10px 0;
     padding: 70px 0;
     line-height: 1.5;
-`;
+`
 
 Styled.Span = styled.span`
     display: flex;
@@ -31,7 +33,7 @@ Styled.Span = styled.span`
         height: auto;
         margin-right: 10px;
     }
-`;
+`
 
 Styled.FlexCenter = styled.div`
     display: flex;
@@ -47,7 +49,7 @@ Styled.FlexCenter = styled.div`
     & > ${Styled.Button} {
         margin-top: 0.5rem;
     }
-`;
+`
 
 Styled.Input = styled.input`
     padding: 0.5rem;
@@ -56,7 +58,7 @@ Styled.Input = styled.input`
     border-radius: 3px;
     outline: none;
     width: 45vh;
-    height: 251.px;
+    height: 50px;
     padding: 9px 0 7px 8px;
     background-color: #fafafa;
     font-size: 12px;
@@ -70,7 +72,7 @@ Styled.Input = styled.input`
     &::placeholder {
         color: #999;
     }
-`;
+`
 
 Styled.Button = styled.button`
     background-color: #3898f3;
@@ -88,7 +90,6 @@ Styled.Button = styled.button`
     &:hover {
         background-color: #3f4b5b;
     }
-`;
+`
 
-export default Styled;
-
+export default Styled

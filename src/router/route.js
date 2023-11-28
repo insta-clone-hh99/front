@@ -19,8 +19,8 @@ function Router() {
                     <Route index element={isLoggedIn ? <Home /> : <Login />} />
                     <Route path="/posts/:postId" element={<DetaliedPage />} />
                     <Route path="/api/posts/new" element={<NewPost />} />
-                    <Route path="/api/login" element={<SignIn />} />
-                    <Route path="/api/signup" element={<Signup />} />
+                    <Route path="/login" element={<SignIn />} />
+                    <Route path="/signup" element={<Signup />} />
                 </Route>
             </Routes>
         </BrowserRouter>

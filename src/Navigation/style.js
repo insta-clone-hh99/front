@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const NavWrapper = styled.div`
+    background-color: black;
     display: flex;
     width: 315px;
     height: 56px;
@@ -18,6 +19,7 @@ export const Wrapper = styled.div`
     height: 56px;
     align-items: center;
     cursor: pointer;
+    background-color: black;
 `
 
 export const ImgStyle = styled.img`

@@ -1,15 +1,29 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useLoaderData, useLocation } from 'react-router-dom'
 import LayoutNavigation from './Navigation/LayoutNavigation'
 import * as S from './style'
 import LayoutFriendsList from './FriednsList/LayoutFriendsList'
 
 export default function Layout() {
+    const { pathname } = useLocation()
+    const isLoginPage = pathname === '/login'
+    const isSignUpPage = pathname === '/signup'
+
     return (
         <S.Wrapper>
-            <LayoutNavigation />
-            <Outlet />
-            <LayoutFriendsList />
+            {!isLoginPage && !isSignUpPage && <LayoutNavigation />}
+            <div
+                style={{
+                    width: '1920px',
+                    height: '1000px',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                }}
+            >
+                <Outlet />
+            </div>
+            {!isLoginPage && !isSignUpPage && <LayoutFriendsList />}
         </S.Wrapper>
     )
 }
