@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useMutation } from 'react-query'
 import axios from 'axios'
 import Styled from './style'
 import InstagramLogo from '../../assets/insta-rogo.png'
 
 function SignIn({ onLogin, onClose }) {
+    const navigate = useNavigate()
     const [email, setEmail] = useState('')
     const [password, setPassWord] = useState('')
     const [error, setError] = useState('')
@@ -55,7 +56,7 @@ function SignIn({ onLogin, onClose }) {
             setError('아이디 비밀번호 필수.')
             return
         }
-
+        navigate('/')
         setError('')
         try {
             await loginMutation.mutateAsync({ email, password })
@@ -100,7 +101,7 @@ function SignIn({ onLogin, onClose }) {
                 <Styled.LinkText1>
                     계정이 없으신가요?
                     <Styled.ButtonAsText>
-                        <Link to="/api/signup">가입하기</Link>
+                        <Link to="/signup">가입하기</Link>
                     </Styled.ButtonAsText>
                 </Styled.LinkText1>
             </Styled.LinkText>
