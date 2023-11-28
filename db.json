@@ -1,28 +1,71 @@
 {
+  "signup": [
+    {
+      "id": 1,
+      "userEmail": "hewllpark@gmail.com",
+      "userPw": "nana11con",
+      "userName": "박나원",
+      "nickname": "나나"
+    },
+    {
+      "id": 2,
+      "userEmail": "XX@X.X",
+      "userPw": "XX",
+      "userName": "XX",
+      "nickName": "XXX"
+    },
+    {
+      "id": 3,
+      "userEmail": "ㄴㄴ@ㅌ.ㅌ",
+      "userPw": "s23213",
+      "userName": "ㄴ",
+      "nickName": "ㄴ"
+    },
+    {
+      "id": 4,
+      "userEmail": "ZZ@Z.Z",
+      "userPw": "ZZZZ12",
+      "userName": "engel",
+      "nickName": "engel1"
+    },
+    {
+      "id": 5,
+      "userEmail": "zz@z.z",
+      "userPw": "zz1234",
+      "userName": "zaz",
+      "nickName": "asdssad"
+    }
+  ],
+  "login": [
+    {
+      "userEmail": "hewllpark@gmail.com",
+      "userPw": "nana11con",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "userEmail": "XX@X.X",
+      "userPw": "XXwq12"
+    },
+    {
+      "id": 3,
+      "userEmail": "ZZ@Z.Z",
+      "userPw": "ZZZZ12"
+    },
+    {
+      "id": 4,
+      "userEmail": "zz@z.z",
+      "userPw": "zz1234"
+    }
+  ],
   "posts": [
     {
       "id": 1,
       "contents": ""
     },
     {
-      "content": "asdasd",
-      "id": 2
-    },
-    {
-      "content": "asdasd",
-      "id": 3
-    },
-    {
-      "content": "asdasd",
-      "id": 4
-    },
-    {
-      "content": "rrrrr",
-      "id": 5
-    },
-    {
-      "content": "asdasd",
-      "id": 6
+      "id": 2,
+      "content": "asdasd"
     }
   ]
 }

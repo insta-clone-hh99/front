@@ -16,3 +16,17 @@ export const getPost = () => {
         return response
     } catch (error) {}
 }
+
+// 로그인
+export const loginUser = async ({ userEmail, userPw }) => {
+    try {
+        const response = await axios.post(`${process.env.REACT_APP_SERVER_URL_1}/login`, {
+            id: null,
+            userEmail,
+            userPw,
+        });
+        return response.data;
+    } catch (error) {
+        throw error;
+    }
+};

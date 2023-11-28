@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import * as S from './style'
 import Post from '../Post.jsx/Post'
 import { useMutation, useQuery } from 'react-query'
+/* eslint-disable */
 import { AddPost, addPost, getPost } from '../API/api'
 import FriendsList from '../FriendsList/FriendsList'
 
