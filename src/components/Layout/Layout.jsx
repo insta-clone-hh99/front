@@ -14,8 +14,8 @@ export default function Layout() {
             {!isLoginPage && !isSignUpPage && <LayoutNavigation />}
             <div
                 style={{
-                    width: '1920px',
-                    height: '1000px',
+                    width: '100vw',
+                    height: '100vh',
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
