@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
-const Styled = {};
+const Styled = {}
 
 Styled.Content = styled.div`
     display: flex;
@@ -10,7 +10,7 @@ Styled.Content = styled.div`
     border: 1px solid #dbdbdb;
     margin: 0 0 10px 0;
     padding: 10px 0 10px 0;
-`;
+`
 
 Styled.Lgtitle = styled.div`
     text-align: center;
@@ -18,7 +18,7 @@ Styled.Lgtitle = styled.div`
     margin: 0 0 10px 0;
     padding: 70px 0;
     line-height: 1.5;
-`;
+`
 
 Styled.Span = styled.span`
     display: flex;
@@ -31,7 +31,7 @@ Styled.Span = styled.span`
         height: auto;
         margin-right: 10px;
     }
-`;
+`
 
 Styled.FlexCenter = styled.div`
     display: flex;
@@ -47,7 +47,7 @@ Styled.FlexCenter = styled.div`
     & > ${Styled.Button} {
         margin-top: 0.5rem;
     }
-`;
+`
 
 Styled.Input = styled.input`
     padding: 0.5rem;
@@ -56,7 +56,6 @@ Styled.Input = styled.input`
     border-radius: 3px;
     outline: none;
     width: 45vh;
-    height: 251.px;
     padding: 9px 0 7px 8px;
     background-color: #fafafa;
     font-size: 12px;
@@ -70,7 +69,7 @@ Styled.Input = styled.input`
     &::placeholder {
         color: #999;
     }
-`;
+`
 
 Styled.Button = styled.button`
     background-color: #3898f3;
@@ -88,7 +87,52 @@ Styled.Button = styled.button`
     &:hover {
         background-color: #3f4b5b;
     }
-`;
+`
 
-export default Styled;
+Styled.LinkText = styled.div`
+    border: 1px solid #dbdbdb;
+    margin: 0 0 20px 0;
+    padding: 10px 0 10px 0;
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 48vh;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`
 
+Styled.LinkText1 = styled.div`
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+`
+
+Styled.ButtonAsText = styled.button`
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    color: #3898f3;
+    cursor: pointer;
+    text-decoration: underline;
+
+    & > a {
+        color: inherit;
+        text-decoration: inherit;
+    }
+`
+
+Styled.ErrorContainer = styled.div`
+    border: 1px solid #ffffff;
+    padding: 8px;
+`
+
+Styled.ErrorText = styled.p`
+    color: red;
+    font-size: 14px;
+`
+
+export default Styled
