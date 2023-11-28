@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 import styled from 'styled-components'
 
 const Styled = {}
+=======
+import styled from "styled-components";
+
+const Styled = {};
+>>>>>>> b6bd13a4d1b19a5074e92cec92a25f6ac1d50d8c
 
 Styled.Content = styled.div`
     display: flex;
@@ -10,7 +16,11 @@ Styled.Content = styled.div`
     border: 1px solid #dbdbdb;
     margin: 0 0 10px 0;
     padding: 10px 0 10px 0;
+<<<<<<< HEAD
 `
+=======
+`;
+>>>>>>> b6bd13a4d1b19a5074e92cec92a25f6ac1d50d8c
 
 Styled.Lgtitle = styled.div`
     text-align: center;
@@ -18,7 +28,11 @@ Styled.Lgtitle = styled.div`
     margin: 0 0 10px 0;
     padding: 70px 0;
     line-height: 1.5;
+<<<<<<< HEAD
 `
+=======
+`;
+>>>>>>> b6bd13a4d1b19a5074e92cec92a25f6ac1d50d8c
 
 Styled.Span = styled.span`
     display: flex;
@@ -31,7 +45,11 @@ Styled.Span = styled.span`
         height: auto;
         margin-right: 10px;
     }
+<<<<<<< HEAD
 `
+=======
+`;
+>>>>>>> b6bd13a4d1b19a5074e92cec92a25f6ac1d50d8c
 
 Styled.FlexCenter = styled.div`
     display: flex;
@@ -47,7 +65,11 @@ Styled.FlexCenter = styled.div`
     & > ${Styled.Button} {
         margin-top: 0.5rem;
     }
+<<<<<<< HEAD
 `
+=======
+`;
+>>>>>>> b6bd13a4d1b19a5074e92cec92a25f6ac1d50d8c
 
 Styled.Input = styled.input`
     padding: 0.5rem;
@@ -56,6 +78,10 @@ Styled.Input = styled.input`
     border-radius: 3px;
     outline: none;
     width: 45vh;
+<<<<<<< HEAD
+=======
+    height: 251.px;
+>>>>>>> b6bd13a4d1b19a5074e92cec92a25f6ac1d50d8c
     padding: 9px 0 7px 8px;
     background-color: #fafafa;
     font-size: 12px;
@@ -69,7 +95,11 @@ Styled.Input = styled.input`
     &::placeholder {
         color: #999;
     }
+<<<<<<< HEAD
 `
+=======
+`;
+>>>>>>> b6bd13a4d1b19a5074e92cec92a25f6ac1d50d8c
 
 Styled.Button = styled.button`
     background-color: #3898f3;
@@ -87,6 +117,7 @@ Styled.Button = styled.button`
     &:hover {
         background-color: #3f4b5b;
     }
+<<<<<<< HEAD
 `
 
 Styled.LinkText = styled.div`
@@ -136,3 +167,8 @@ Styled.ErrorText = styled.p`
 `
 
 export default Styled
+=======
+`;
+
+export default Styled;
+>>>>>>> b6bd13a4d1b19a5074e92cec92a25f6ac1d50d8c

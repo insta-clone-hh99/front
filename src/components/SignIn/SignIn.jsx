@@ -64,6 +64,7 @@ function SignIn({ onLogin, onClose }) {
         }
     }
 
+
     return (
         <Styled.Content>
             <Styled.Lgtitle>
@@ -71,7 +72,7 @@ function SignIn({ onLogin, onClose }) {
                     <img src={InstagramLogo} alt="Instagram Logo" />
                 </Styled.Span>
                 <Styled.FlexCenter>
-                    <Styled.Input
+                <Styled.Input
                         type="text"
                         placeholder="전화번호, 사용자 이름 또는 이메일"
                         id="email"
@@ -109,3 +110,4 @@ function SignIn({ onLogin, onClose }) {
 }
 
 export default SignIn
+

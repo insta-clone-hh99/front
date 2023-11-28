@@ -30,9 +30,12 @@
         "react-scripts": "^5.0.1",
         "stream-browserify": "^3.0.0",
         "styled-components": "^6.1.1",
+<<<<<<< HEAD
         "url": "^0.11.3",
         "util": "^0.12.5",
         "uuid": "^9.0.1",
+=======
+>>>>>>> b6bd13a4d1b19a5074e92cec92a25f6ac1d50d8c
         "web-vitals": "^2.1.0"
     },
     "scripts": {

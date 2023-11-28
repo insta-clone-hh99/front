@@ -1,3 +1,4 @@
+
 import React from 'react'
 import * as S from './style'
 
@@ -7,6 +8,7 @@ function Headers() {
             <div>instagram</div>
         </S.Wrapper>
     )
+
 }
 
 export default Headers

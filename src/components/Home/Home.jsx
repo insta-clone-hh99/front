@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react'
 import * as S from './style'
 import Post from '../Post.jsx/Post'
@@ -74,3 +75,4 @@ export default function Home() {
         </S.Wrapper>
     )
 }
+

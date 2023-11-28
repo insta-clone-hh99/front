@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "signup": [
     {
       "id": 1,
@@ -69,3 +70,12 @@
     }
   ]
 }
+=======
+    "data": [
+        {
+            "userEmail": "abc@de.com",
+            "userPw": "abc"
+        }
+    ]
+}
+>>>>>>> b6bd13a4d1b19a5074e92cec92a25f6ac1d50d8c
