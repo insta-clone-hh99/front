@@ -15,6 +15,7 @@ function Signup() {
     const registerMutation = useMutation(
         async ({ email, password, userName, nickname }) => {
             try {
+
                 const response = await axios.post(
                     `${process.env.REACT_APP_API_URL2}/signup`,
                     {
@@ -27,6 +28,7 @@ function Signup() {
                 )
 
                 console.log('등록 후 응답:', response)
+
 
                 if (response.status === 200) {
                     console.log('회원가입 완료:', response.data)
@@ -97,6 +99,7 @@ function Signup() {
                 console.log('회원가입이 완료되었습니다.', response.data)
                 alert('회원가입이 완료되었습니다.', response.data)
             }
+
         } catch (error) {
             console.log('회원가입 오류 다시 작성해주세요.', error)
 
@@ -168,7 +171,7 @@ function Signup() {
                 <Styled.LinkText1>
                     계정이 있으신가요?
                     <Styled.ButtonAsText>
-                        <Link to="/api/login">로그인</Link>
+                        <Link to="/login">로그인</Link>
                     </Styled.ButtonAsText>
                 </Styled.LinkText1>
             </Styled.LinkText>

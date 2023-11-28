@@ -12,6 +12,7 @@ Styled.Content = styled.div`
     padding: 10px 0 10px 0;
     background-color: white;
     width: 100vw;
+
 `
 
 Styled.Lgtitle = styled.div`

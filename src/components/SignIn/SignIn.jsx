@@ -3,7 +3,9 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useMutation } from 'react-query'
 import axios from 'axios'
 import Styled from './style'
-import InstagramLogo from '../../assets/insta-rogo.png'
+
+import InstagramLogo from '../../assets/insta-rogo.png';
+
 
 function SignIn({ onLogin, onClose }) {
     const navigate = useNavigate()
