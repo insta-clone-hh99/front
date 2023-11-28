@@ -1,116 +1,69 @@
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
+import { useMutation } from 'react-query'
+import axios from 'axios'
+import Styled from './style'
+import InstagramLogo from '../../assets/insta-rogo-text.jpeg'
 
-// import React,
-// import { useEffect, useState } from "react";
-// import { Link } from "react-router-dom";
-// import * as Styled from "./style";
-// import axios from "axios";
-// import { api1 } from "../../utils/Api";
+function SignIn({ onLogin, onClose }) {
+    const [email, setEmail] = useState('')
+    const [password, setPassWord] = useState('')
+    const [error, setError] = useState('')
 
-// function SignIn() {
-// const [userEmail, setUserEmail] = useState("");
-// const [userPw, setUserPw] = useState("");
-// const [error, setError] = useState("");
-// const [token, setToken] = useState("");
-// const [loginMutation, setLoginMutation] = useState(null);
+    const loginMutation = useMutation(
+        async ({ email, password }) => {
+            try {
+                const response = await axios.post(`${process.env.REACT_APP_API_URL2}/api/login`, {
+                    email,
+                    password,
+                })
+                const token = response.data.accessToken
 
-// useEffect(() => {
-//     if (token) {
-//         document.cookie = `token=${token}; path=/`;
-//         axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
-//     }
-// }, [token]);
+                console.log('로그인 응답:', response.data)
+                return token
+            } catch (error) {
+                console.log('로그인 에러:', error)
+                throw error
+            }
+        },
+        {
+            onSuccess: (token) => {
+                try {
+                    sessionStorage.setItem('accessToken', token)
 
-// useEffect(() => {
-//     console.log("loginMutation:", loginMutation);
-// }, [loginMutation]);
+                    if (typeof onLogin === 'function') {
+                        onLogin(token)
+                    }
 
-// const fetchData = async () => {
-//     try {
-//         const response = await api1.post("/api/signup");
-//         console.log("Data API_URL1:", response.data);
-//         setToken(response.data.token);
-//     } catch (error) {
-//         console.error("Error API_URL:", error);
-//     }
-// };
+                    console.log('로그인 성공:', token)
+                    alert('로그인이 성공적으로 완료되었습니다.')
 
-// const onLoginHandler = async () => {
-//     if (!userEmail || !userPw) {
-//         setError("ID and Password are required.");
-//         return;
-//     }
+                    onClose()
+                } catch (error) {
+                    console.error('로그인 실패:', error)
+                    alert('로그인에 실패했습니다. 아이디와 비밀번호를 확인하세요.')
+                }
+            },
+            onError: (error) => {
+                setError('로그인 중 예기치 않은 오류가 발생했습니다..')
+            },
+        },
+    )
 
-//     setError("");
-//     try {
-//         await fetchData();
+    const onLoginHandler = async () => {
+        if (!email || !password) {
+            setError('아이디 비밀번호 필수.')
+            return
+        }
 
-//         document.cookie = `token=${token}; path=/`;
-//         axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+        setError('')
+        try {
+            await loginMutation.mutateAsync({ email, password })
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
-//         if (loginMutation) {
-//             const { userData } = await loginMutation.mutateAsync({
-//                 userEmail,
-//                 userPw,
-//             });
-
-//             console.log("User data after login:", userData);
-
-//             const { userName } = userData;
-//             console.log("welcome, ", userName);
-//         }
-//     } catch (error) {
-//         console.error("Error during login:", error);
-
-//         if (error.response) {
-//             const status = error.response.status;
-//             const responseData = error.response.data;
-
-//             if (
-//                 status === 401 &&
-//                 responseData.message === "Email 또는 비밀번호가 틀립니다."
-//             ) {
-//                 setError("Email 또는 비밀번호가 틀립니다.");
-//             } else if (
-//                 status === 400 &&
-//                 responseData.message ===
-//                     "비밀번호는 4~12자리의 영문 대소문자와 숫자의 조합이되어야 합니다."
-//             ) {
-//                 setError(
-//                     "비밀번호는 4~12자리의 영문 대소문자와 숫자의 조합이되어야 합니다."
-//                 );
-//             }
-//         }
-//     }
-// };
-
-//     return (
-//         <Styled.Content>
-//             <Styled.Lgtitle>
-//                 <Styled.Span>instagram</Styled.Span>
-//                 <Styled.FlexCenter>
-//                     <Styled.Input
-//                     id="?"
-//                     type="text"
-//                     placeholder="email"
-//                     />
-//                     <Styled.Input
-//                     id="?"
-//                     type="text"
-//                     placeholder="pw"
-//                     />
-//                 <Styled.Button>로그인</Styled.Button>
-//                 </Styled.FlexCenter>
-//             </Styled.Lgtitle>
-//         </Styled.Content>
-//     );
-// }
-
-// export default SignIn;
-
-import Styled from "./style";
-import InstagramLogo from "../../assets/insta-rogo.png";
-
-function SignIn() {
     return (
         <Styled.Content>
             <Styled.Lgtitle>
@@ -119,17 +72,40 @@ function SignIn() {
                 </Styled.Span>
                 <Styled.FlexCenter>
                     <Styled.Input
-                        id="?"
                         type="text"
                         placeholder="전화번호, 사용자 이름 또는 이메일"
+                        id="email"
+                        value={email || ''}
+                        onChange={(e) => setEmail(e.target.value)}
                     />
-                    <Styled.Input id="?" type="text" placeholder="비밀번호" />
-                    <Styled.Button>로그인</Styled.Button>
+                    <Styled.Input
+                        type="password"
+                        placeholder="비밀번호"
+                        id="Password"
+                        value={password || ''}
+                        onChange={(e) => setPassWord(e.target.value)}
+                    />
+                    <Styled.Button type="button" onClick={onLoginHandler}>
+                        로그인
+                    </Styled.Button>
                 </Styled.FlexCenter>
+                {error && (
+                    <Styled.ErrorContainer>
+                        <Styled.ErrorText>{error}</Styled.ErrorText>
+                    </Styled.ErrorContainer>
+                )}
             </Styled.Lgtitle>
+
+            <Styled.LinkText>
+                <Styled.LinkText1>
+                    계정이 없으신가요?
+                    <Styled.ButtonAsText>
+                        <Link to="/api/signup">가입하기</Link>
+                    </Styled.ButtonAsText>
+                </Styled.LinkText1>
+            </Styled.LinkText>
         </Styled.Content>
-    );
+    )
 }
 
-export default SignIn;
-
+export default SignIn
