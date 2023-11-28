@@ -1,19 +1,15 @@
-
-import React from "react";
-import { Outlet } from "react-router-dom";
-import Headers from "../Headers/Headers";
-import Footer from "../Footer/Footer";
-
+import React from 'react'
+import { Outlet } from 'react-router-dom'
+import LayoutNavigation from './Navigation/LayoutNavigation'
+import * as S from './style'
+import LayoutFriendsList from './FriednsList/LayoutFriendsList'
 
 export default function Layout() {
     return (
-        <div>
-            <Headers />
+        <S.Wrapper>
+            <LayoutNavigation />
             <Outlet />
-            <Footer />
-        </div>
-
+            <LayoutFriendsList />
+        </S.Wrapper>
     )
 }
-
-
