@@ -16,8 +16,8 @@ function Router() {
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<Layout />}>
-                    <Route path="/" element={isLoggedIn ? <Home /> : <Login />} />
-                    <Route path="/posts/:postId" element={<ThirdModal />} />
+                    <Route index element={isLoggedIn ? <Home /> : <Login />} />
+                    <Route path="/posts/:postId" element={<DetaliedPage />} />
                     <Route path="/api/posts/new" element={<NewPost />} />
                     <Route path="/api/login" element={<SignIn />} />
                     <Route path="/api/signup" element={<Signup />} />

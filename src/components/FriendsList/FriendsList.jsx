@@ -1,7 +1,8 @@
 import React from 'react'
 import * as S from './style'
 
-export default function FriendsList({ name }) {
+export default function FriendsList({ friednsList, name }) {
+    const onClickFollowBtn = () => {}
     return (
         <S.Wrapper>
             <S.Left>
@@ -11,7 +12,7 @@ export default function FriendsList({ name }) {
                     <S.SubInfo>회원님을 위한 추천</S.SubInfo>
                 </S.TitleAndSub>
             </S.Left>
-            <S.TextFollow>팔로우</S.TextFollow>
+            <S.TextFollow onClick={onClickFollowBtn}>팔로우</S.TextFollow>
         </S.Wrapper>
     )
 }

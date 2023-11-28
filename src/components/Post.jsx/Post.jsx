@@ -3,14 +3,38 @@ import * as S from './style'
 import ThirdPostModal from '../Modal/ThirdPostModal/ThirdPostModal'
 import { Portal } from 'react-portal'
 import { useNavigate } from 'react-router-dom'
+import { getComments, getOnePostInfo } from '../API/api'
+import { TimeAndDate, VideoCard } from '../../utils/time'
+import FourthPostModal from '../Modal/FourthPostModal/FourthPostModal'
+import EmojiPicker from 'emoji-picker-react'
 
 export default function Post({ post }) {
     const [isHeart, setIsHeart] = useState(false)
     const [isSaved, setIsSaved] = useState(false)
     const [isOpenThirdModal, setIsOpenThirdModal] = useState(false)
+    const [isModalOpen, setIsModalOpen] = useState(false)
+    const [isEmoji, setIsEmoji] = useState('')
+    const [contents, setContents] = useState('')
+
     const navigate = useNavigate()
+    console.log('post', post)
 
     console.log('post', post)
+
+    const onChangeConetens = (event) => {
+        setContents(event.target.value)
+        //textArea에 적히는 것들
+    }
+
+    const onClickSmileImag = () => {
+        setIsEmoji((prev) => !prev)
+    }
+
+    const onClickSmile = (emojiData) => {
+        setContents((prevContents) => prevContents + emojiData.emoji)
+        setIsEmoji((prev) => !prev)
+        console.log(emojiData)
+    }
 
     const onClickHeart = () => {
         setIsHeart((prev) => !prev)
@@ -21,27 +45,42 @@ export default function Post({ post }) {
     }
 
     const controlThirdModal = (id) => () => {
+        getOnePostInfo(id)
+        getComments(id)
         setIsOpenThirdModal((prev) => !prev)
         navigate(`/posts/${id}`)
+    }
+
+    const onClickMoreInfo = () => {
+        setIsModalOpen((prev) => !prev)
     }
 
     return (
         <S.PostWrapper>
             {isOpenThirdModal && (
                 <Portal node={document && document.getElementById('modal-root')}>
-                    <ThirdPostModal post={post} onClose={controlThirdModal} />
+                    <ThirdPostModal post={post} />
                 </Portal>
             )}
             <S.HeaderWrapper>
-                <img src="/avatar.png" alt="엑박" />
+                {isModalOpen && (
+                    <Portal node={document && document.getElementById('modal-root')}>
+                        <FourthPostModal onClickMoreInfo={onClickMoreInfo} />
+                    </Portal>
+                )}
+                <S.ProfileImage src="/avatar.png" alt="엑박" />
                 <S.PostHeaerWrapper>
-                    <S.ContentStyle>{post.contents}</S.ContentStyle>
-                    <S.ContentStyle>2023-11-24</S.ContentStyle>
+                    <div style={{ display: 'flex', flexDirection: 'row' }}>
+                        <S.ContentStyle>{post.userName}</S.ContentStyle>
+                        <S.TimeStyle>{TimeAndDate(post.createdAt)}</S.TimeStyle>
+                    </div>
+                    <div>
+                        <S.MoreInfo onClick={onClickMoreInfo} />
+                    </div>
                 </S.PostHeaerWrapper>
             </S.HeaderWrapper>
 
-            <span>{post.contents}</span>
-            <S.ImageSize src={post.imageUrl} alt="사진" />
+            <S.ImageSize src={post.imageUrls[0]} alt="사진" />
             <div>
                 <S.ImgBar>
                     <div>
@@ -58,11 +97,19 @@ export default function Post({ post }) {
                 <S.PostContentsWrapper>
                     <S.TextStyle>hm_son7님 여러 명이 좋아합니다</S.TextStyle>
                     <div>
-                        <S.TextStyle>ironmin_</S.TextStyle>
-                        <S.TextStyle>메리크리스마스</S.TextStyle>
+                        <S.TextStyle>{post.userName}</S.TextStyle>
+                        <S.TextStyle>{post.contents}</S.TextStyle>
                     </div>
                     <S.TextStyle onClick={controlThirdModal}>댓글 1320개 모두 보기</S.TextStyle>
-                    <S.PostInputStyle placeholder="댓글 달기..." />
+                    <S.PostFooter>
+                        <S.PostInputStyle onChange={onChangeConetens} value={contents} placeholder="댓글 달기..." />
+                        <div>
+                            <span>게시</span>
+                            <S.SmileImage onClick={onClickSmileImag} size={20} />
+                            {isEmoji && <EmojiPicker onEmojiClick={onClickSmile} cleanOnEnter />}
+                        </div>
+                    </S.PostFooter>
+                    S
                 </S.PostContentsWrapper>
             </div>
         </S.PostWrapper>

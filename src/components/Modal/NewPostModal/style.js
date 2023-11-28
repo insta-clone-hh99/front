@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { GoArrowLeft } from 'react-icons/go'
+import { CgSmile } from 'react-icons/cg'
 
 export const Header = styled.div`
     display: flex;
@@ -69,6 +70,7 @@ export const NextButton = styled.span`
     color: #0095f6;
     margin-right: 15px;
     font-weight: bolder;
+    cursor: pointer;
 `
 
 export const GoArrowLeftIcon = styled(GoArrowLeft)`
@@ -87,7 +89,7 @@ export const ImageContentsWrapper = styled.div`
 `
 export const ImageSize = styled.img`
     width: 400px;
-    height: 400px;
+    height: 710px;
 `
 
 export const Nickname = styled.span`
@@ -103,13 +105,15 @@ export const HeaderWrapper = styled.div`
 `
 
 export const ProfileImage = styled.img`
-    margin: 15px;
+    width: 30px;
+    height: 30px;
+    margin: 10px;
 `
 
 export const ContentsTextArea = styled.textarea`
     background-color: #262528;
     border: 0;
-    width: 300px;
+    width: 280px;
     height: 200px;
     color: white;
     font-size: 13px;
@@ -120,5 +124,12 @@ export const CheckTextLength = styled.span`
 `
 export const FooterWrapper = styled.div`
     display: flex;
+    width: 300px;
     justify-content: space-between;
+`
+
+export const SmileImage = styled(CgSmile)`
+    color: gray;
+    margin-left: 10px;
+    cursor: pointer;
 `

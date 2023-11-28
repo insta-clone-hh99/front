@@ -1,26 +1,93 @@
 import axios from 'axios'
 
+//게시글
+
 export const addPost = async (newPost) => {
     try {
-        const resonse = axios.post(`${process.env.REACT_APP_SERVER_URL_1}/posts`, newPost)
-        return resonse
+        const response = await axios.post(`${process.env.REACT_APP_SERVER_URL_2}/api/posts`, newPost)
+        console.log(response)
+        return response.data
     } catch (error) {
         if (error.resonse) {
         }
     }
 }
 
-export const getPost = () => {
+export const deletePost = async (postId) => {
     try {
-        const response = axios.get(`${process.env.REACT_APP_SERVER_URL_1}/posts`)
+        const response = await axios.delete(`${process.env.REACT_APP_SERVER_URL_2}/api/posts/${postId}`)
+
+        return response``
+    } catch (error) {}
+}
+
+export const getPost = async () => {
+    try {
+        const response = await axios.get(`${process.env.REACT_APP_SERVER_URL_2}/api/posts`)
+        console.log('response', response)
+        return response.data
+    } catch (error) {}
+}
+
+export const getOnePostInfo = async (postId) => {
+    try {
+        const response = await axios.get(`${process.env.REACT_APP_SERVER_URL_2}/api/posts/${postId}`)
+
+        return response.data
+    } catch (error) {}
+}
+
+
+//댓글
+
+export const getComments = async (postId) => {
+    try {
+        const response = await axios.get(`${process.env.REACT_APP_SERVER_URL_2}/api/posts/1/comments`)
+        return response.data
+    } catch (error) {}
+}
+
+export const deleteComment = async (target) => {
+    try {
+        const response = await axios.delete(
+            `${process.env.REACT_APP_SERVER_URL_2}/api/posts/${target.postId}/comments/${target.commentId}`,
+        )
         return response
     } catch (error) {}
 }
 
-export const getOnePostInfo = (postId) => {
+export const addComment = async (target) => {
     try {
-        const response = axios.get(`${process.env.REACT_APP_SERVER_URL_1}/posts/${postId}`)
-        
+        const response = await axios.post(
+            `${process.env.REACT_APP_SERVER_URL_2}/api/posts/${target.postId}/comments/`,
+            target.comment,
+            {
+                headers: {
+                    Authorization: `Bearer ${target.userToken}`,
+                },
+            },
+        )
+
         return response
+    } catch (error) {}
+}
+
+export const heartPlus = async (target) => {
+    try {
+        const response = await axios.post(`${process.env.REACT_APP_SERVER_URL_2}/api/posts/${target.postId}/likes`, {
+            headers: {
+                Authorization: `Bearer ${target.userToken}`,
+            },
+        })
+    } catch (error) {}
+}
+
+export const cancelHeart = async (target) => {
+    try {
+        const response = await axios.delete(`${process.env.REACT_APP_SERVER_URL_2}/api/posts/${target.postId}/likes`, {
+            headers: {
+                Authorization: `Bearer ${target.userToken}`,
+            },
+        })
     } catch (error) {}
 }

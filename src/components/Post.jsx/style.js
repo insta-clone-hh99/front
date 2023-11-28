@@ -5,6 +5,8 @@ import { IoPaperPlaneOutline } from 'react-icons/io5'
 import { BsSave } from 'react-icons/bs'
 import { GoHeartFill } from 'react-icons/go'
 import { BsFillSaveFill } from 'react-icons/bs'
+import { BsThreeDots } from 'react-icons/bs'
+import { CgSmile } from 'react-icons/cg'
 
 export const PostWrapper = styled.div`
     width: 470px;
@@ -14,14 +16,23 @@ export const PostWrapper = styled.div`
     background-color: black;
 `
 
+export const ProfileImage = styled.img`
+    width: 40px;
+    height: 40px;
+`
+
 export const HeaderWrapper = styled.div`
     display: flex;
     flex-direction: row;
+    margin-bottom: 10px;
 `
 
 export const PostHeaerWrapper = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    width: 500px;
+    align-items: center;
+    justify-content: space-between;
 `
 
 export const ImageSize = styled.img`
@@ -37,6 +48,14 @@ export const Wrapper = styled.div`
 
 export const ContentStyle = styled.span`
     color: white;
+    margin-top: 0px;
+    margin-left: 10px;
+    font-size: 13px;
+`
+
+export const TimeStyle = styled.span`
+    color: gray;
+    margin-left: 10px;
 `
 
 export const ImgBar = styled.div`
@@ -63,6 +82,7 @@ export const PostContentsWrapper = styled.div`
 `
 
 export const PostInputStyle = styled.input`
+    width: 410px;
     background-color: black;
     color: white;
     border: 0;
@@ -88,4 +108,19 @@ export const SaveStyle = styled(BsFillSaveFill)`
     cursor: pointer;
 `
 
+export const MoreInfo = styled(BsThreeDots)`
+    color: white;
+    margin-right: 10px;
+    cursor: pointer;
+`
 
+export const SmileImage = styled(CgSmile)`
+    color: white;
+    cursor: pointer;
+`
+
+export const PostFooter = styled.div`
+    display: flex;
+    flex-direction: row;
+    width: 470px;
+`

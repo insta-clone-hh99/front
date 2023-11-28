@@ -1,12 +1,13 @@
 import React, { useRef, useState } from 'react'
 import '../NewPostModal/style.css'
 import * as S from './style'
-import { useNavigate } from 'react-router-dom'
 import { Portal } from 'react-portal'
 import SecondModal from '../SecondModal/SecondModal'
 import { useMutation, useQueryClient } from 'react-query'
 import { addPost } from '../../API/api'
 import { v4 as uuidv4 } from 'uuid'
+import EmojiPicker from 'emoji-picker-react'
+
 
 export default function NewPostModal({ setIsOpenFirstModal, onClose }) {
     const [isActive, setIsActive] = useState(false)
@@ -14,7 +15,7 @@ export default function NewPostModal({ setIsOpenFirstModal, onClose }) {
     const [isSecondModalAcitve, setIsSecondModalActive] = useState(false)
     const [isChanged, setIsChanged] = useState(false)
     const [contents, setConetns] = useState('')
-    const navigate = useNavigate()
+    const [isEmoji, setIsEmoji] = useState('')
     const buttonRef = useRef()
 
     const queryClient = useQueryClient()
@@ -64,6 +65,15 @@ export default function NewPostModal({ setIsOpenFirstModal, onClose }) {
     const onClickNext = () => {
         setIsChanged(true)
     }
+
+    const onClickSmile = (emojiData) => {
+        // 이모지를 textarea에 추가
+        setConetns((prevContents) => prevContents + emojiData.emoji)
+        setIsEmoji((prev) => !prev)
+        console.log(emojiData)
+    }
+    console.log('contents', contents)
+
     return (
         <div className="modal" onClick={handleOverlayClick}>
             {isSecondModalAcitve && (
@@ -129,9 +139,20 @@ export default function NewPostModal({ setIsOpenFirstModal, onClose }) {
                                                 <S.ProfileImage src="/avatar.png" alt="이미지" />
                                                 <S.Nickname>주철민</S.Nickname>
                                             </S.HeaderWrapper>
-                                            <S.ContentsTextArea onChange={onChangeConetens} />
+                                            <S.ContentsTextArea
+                                                value={contents}
+                                                placeholder="문구를 입력하세요..."
+                                                onChange={onChangeConetens}
+                                            />
                                             <S.FooterWrapper>
-                                                <img src="/avatar.png" alt="이미지" />
+                                                <S.SmileImage onClick={() => setIsEmoji((prev) => !prev)} size={25} />
+                                                {isEmoji && (
+                                                    <EmojiPicker
+                                                        onEmojiClick={onClickSmile}
+                                                        cleanOnEnter
+                                                        placeholder="Type a message"
+                                                    />
+                                                )}
                                                 <S.CheckTextLength>{contents.length}/2200</S.CheckTextLength>
                                             </S.FooterWrapper>
                                         </div>

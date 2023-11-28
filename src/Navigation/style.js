@@ -17,6 +17,7 @@ export const Wrapper = styled.div`
     width: 330px;
     height: 56px;
     align-items: center;
+    cursor: pointer;
 `
 
 export const ImgStyle = styled.img`

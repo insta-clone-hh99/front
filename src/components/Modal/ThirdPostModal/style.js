@@ -15,19 +15,19 @@ export const Wrapper = styled.div`
     left: 0;
     top: 0;
     width: 1920px;
-    height: 900px;
+    height: 880px;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.4);
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 20px;
 `
 
 export const ModalContent = styled.div`
     background-color: black;
     width: 1200px;
     height: 880px;
-    background-color: #262528;
     display: flex;
     flex-direction: row;
 `
@@ -50,8 +50,6 @@ export const ProfileSize = styled.img`
     height: 40px;
     margin: 0 10px;
 `
-
- 
 
 export const HeaderTitle = styled.span`
     color: white;
@@ -78,6 +76,7 @@ export const NicknameWrapper = styled.div`
 export const MoreInfo = styled(BsThreeDots)`
     color: white;
     margin-right: 10px;
+    cursor: pointer;
 `
 export const RightWrapper = styled.div`
     width: 450px;
@@ -165,15 +164,17 @@ export const CommentWrapper = styled.div`
 `
 
 export const CommentStyle = styled.input`
-    background-color: #262528;
+    background-color: black;
     margin-left: 15px;
     width: 330px;
     height: 30px;
     border: 0px;
+    color: white;
 `
 
 export const SmileIcon = styled(FaRegFaceSmile)`
     margin-left: 10px;
+    cursor: pointer;
 `
 
 export const SubmitText = styled.span`

@@ -33,6 +33,10 @@ export const TitleImage = styled.img`
 export const TextFollow = styled.span`
     color: #0095f6;
     font-size: 13px;
+    &:hover {
+        color: skyblue;
+    }
+    cursor: pointer;
 `
 
 export const SubInfo = styled.span`
