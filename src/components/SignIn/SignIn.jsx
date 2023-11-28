@@ -4,8 +4,7 @@ import { useMutation } from 'react-query'
 import axios from 'axios'
 import Styled from './style'
 
-import InstagramLogo from '../../assets/insta-rogo.png';
-
+import InstagramLogo from '../../assets/insta-rogo.png'
 
 function SignIn({ onLogin, onClose }) {
     const navigate = useNavigate()
@@ -16,13 +15,19 @@ function SignIn({ onLogin, onClose }) {
     const loginMutation = useMutation(
         async ({ email, password }) => {
             try {
-                const response = await axios.post(`${process.env.REACT_APP_API_URL2}/api/login`, {
+                const response = await axios.post(`${process.env.REACT_APP_SERVER_URL_2}/api/login`, {
                     email,
                     password,
                 })
-                const token = response.data.accessToken
+                const data = response.data.accessToken
+                const token = data.split(' ')[1]
+                console.log(token)
 
-                console.log('로그인 응답:', response.data)
+                localStorage.setItem('accessToken', token)
+
+                console.log('token', token)
+
+                console.log('로그인 응답:', response)
                 return token
             } catch (error) {
                 console.log('로그인 에러:', error)
@@ -32,8 +37,6 @@ function SignIn({ onLogin, onClose }) {
         {
             onSuccess: (token) => {
                 try {
-                    sessionStorage.setItem('accessToken', token)
-
                     if (typeof onLogin === 'function') {
                         onLogin(token)
                     }

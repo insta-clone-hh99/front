@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import * as S from './style'
 import { FaRegFaceSmile } from 'react-icons/fa6'
 import Comments from '../../Comments/Comments'
-import { useQuery } from 'react-query'
-import { getOnePostInfo, getPost } from '../../API/api'
+import { useMutation, useQuery } from 'react-query'
+import { addComment, getOnePostInfo, getPost } from '../../API/api'
 import { Form, useNavigate, useParams } from 'react-router-dom'
 import { Portal } from 'react-portal'
 import FourthPostModal from '../FourthPostModal/FourthPostModal'
@@ -26,7 +26,9 @@ const ThirdModal = ({ post }) => {
 
     const detailedInfo = data?.data.find((post) => post.postId === parseInt(params.postId))
 
-    console.log('detailedInfo', detailedInfo)
+    const addCommentMutation = useMutation(addComment, {
+        onSuccess: () => {},
+    })
 
     const onClickClose = () => {
         setIsOpen((prev) => !prev)
@@ -37,7 +39,6 @@ const ThirdModal = ({ post }) => {
         setIsEmoji(true)
     }
 
-    console.log(detailedInfo)
     const handleOverlayClick = (e) => {
         if (e.target.classList.contains('modal')) {
             onClickClose()
@@ -64,6 +65,8 @@ const ThirdModal = ({ post }) => {
         setComment((prevComment) => prevComment + emojiData.emoji)
         setIsEmoji((prev) => !prev)
     }
+
+    const onClickSubmit = () => {}
 
     return (
         <Portal node={document && document.getElementById('modal-root')}>
@@ -119,7 +122,7 @@ const ThirdModal = ({ post }) => {
                                                 onChange={onChangeComment}
                                                 placeholder="댓글 달기..."
                                             />
-                                            <S.SubmitText>게시</S.SubmitText>
+                                            <button onClick={onClickSubmit}>게시</button>
                                         </S.CommentWrapper>
                                     </form>
                                 </S.FooterWrapper>

@@ -17,9 +17,6 @@ export default function Post({ post }) {
     const [contents, setContents] = useState('')
 
     const navigate = useNavigate()
-    console.log('post', post)
-
-    console.log('post', post)
 
     const onChangeConetens = (event) => {
         setContents(event.target.value)

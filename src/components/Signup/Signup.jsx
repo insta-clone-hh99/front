@@ -15,9 +15,8 @@ function Signup() {
     const registerMutation = useMutation(
         async ({ email, password, userName, nickname }) => {
             try {
-
                 const response = await axios.post(
-                    `${process.env.REACT_APP_API_URL2}/signup`,
+                    `${process.env.REACT_APP_SERVER_URL_2}/api/signup`,
                     {
                         email,
                         password,
@@ -28,7 +27,6 @@ function Signup() {
                 )
 
                 console.log('등록 후 응답:', response)
-
 
                 if (response.status === 200) {
                     console.log('회원가입 완료:', response.data)
@@ -99,7 +97,6 @@ function Signup() {
                 console.log('회원가입이 완료되었습니다.', response.data)
                 alert('회원가입이 완료되었습니다.', response.data)
             }
-
         } catch (error) {
             console.log('회원가입 오류 다시 작성해주세요.', error)
 
