@@ -10,12 +10,17 @@ Styled.Content = styled.div`
     border: 1px solid #dbdbdb;
     margin: 0 0 10px 0;
     padding: 10px 0 10px 0;
+<<<<<<< HEAD
+=======
+    background-color: white;
+    width: 100vw;
+>>>>>>> c0c96609b0685ed15d3b62f86c619be61f488020
 `
 
 Styled.Lgtitle = styled.div`
     text-align: center;
     border: 1px solid #dbdbdb;
-    margin: 0 0 10px 0;
+    margin: 0 0 0 0;
     padding: 70px 0;
     line-height: 1.5;
 `
@@ -56,6 +61,10 @@ Styled.Input = styled.input`
     border-radius: 3px;
     outline: none;
     width: 45vh;
+<<<<<<< HEAD
+=======
+    height: 50px;
+>>>>>>> c0c96609b0685ed15d3b62f86c619be61f488020
     padding: 9px 0 7px 8px;
     background-color: #fafafa;
     font-size: 12px;

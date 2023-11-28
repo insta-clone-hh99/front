@@ -49,6 +49,12 @@ const Content = styled.div`
     margin: 0 0 10px 0;
     padding: 10px 0 10px 0;
     position: relative;
+<<<<<<< HEAD
+=======
+    width: 100vw;
+    height: 100vh;
+    background-color: white;
+>>>>>>> c0c96609b0685ed15d3b62f86c619be61f488020
 `
 
 const Lgtitle = styled.div`

@@ -15,6 +15,7 @@ function Signup() {
     const registerMutation = useMutation(
         async ({ email, password, userName, nickname }) => {
             try {
+<<<<<<< HEAD
                 const response = await axios.post(`${process.env.REACT_APP_API_URL2}/signup`, {
                     email,
                     password,
@@ -28,6 +29,21 @@ function Signup() {
                 console.log('등록 후 응답:', response)
 
                 
+=======
+                const response = await axios.post(
+                    `${process.env.REACT_APP_API_URL2}/signup`,
+                    {
+                        email,
+                        password,
+                        userName,
+                        nickname,
+                    },
+                    {},
+                )
+
+                console.log('등록 후 응답:', response)
+
+>>>>>>> c0c96609b0685ed15d3b62f86c619be61f488020
                 if (response.status === 200) {
                     console.log('회원가입 완료:', response.data)
                 }
@@ -97,7 +113,10 @@ function Signup() {
                 console.log('회원가입이 완료되었습니다.', response.data)
                 alert('회원가입이 완료되었습니다.', response.data)
             }
+<<<<<<< HEAD
 
+=======
+>>>>>>> c0c96609b0685ed15d3b62f86c619be61f488020
         } catch (error) {
             console.log('회원가입 오류 다시 작성해주세요.', error)
 
@@ -169,7 +188,11 @@ function Signup() {
                 <Styled.LinkText1>
                     계정이 있으신가요?
                     <Styled.ButtonAsText>
+<<<<<<< HEAD
                         <Link to="/login">로그인</Link>
+=======
+                        <Link to="/api/login">로그인</Link>
+>>>>>>> c0c96609b0685ed15d3b62f86c619be61f488020
                     </Styled.ButtonAsText>
                 </Styled.LinkText1>
             </Styled.LinkText>

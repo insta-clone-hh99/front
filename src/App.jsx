@@ -1,4 +1,5 @@
 import React from 'react'
+<<<<<<< HEAD
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './components/Home/Home'
 import Detalie from './components/Detalie/Detalie'
@@ -27,3 +28,11 @@ function Router() {
 }
 
 export default Router
+=======
+import Router from './router/route'
+function App() {
+    return <Router />
+}
+
+export default App
+>>>>>>> c0c96609b0685ed15d3b62f86c619be61f488020

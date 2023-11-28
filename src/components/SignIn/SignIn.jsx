@@ -3,7 +3,11 @@ import { Link } from 'react-router-dom'
 import { useMutation } from 'react-query'
 import axios from 'axios'
 import Styled from './style'
+<<<<<<< HEAD
 import InstagramLogo from '../../assets/insta-rogo.png';
+=======
+import InstagramLogo from '../../assets/insta-rogo.png'
+>>>>>>> c0c96609b0685ed15d3b62f86c619be61f488020
 
 function SignIn({ onLogin, onClose }) {
     const [email, setEmail] = useState('')
@@ -100,7 +104,11 @@ function SignIn({ onLogin, onClose }) {
                 <Styled.LinkText1>
                     계정이 없으신가요?
                     <Styled.ButtonAsText>
+<<<<<<< HEAD
                         <Link to="/signup">가입하기</Link>
+=======
+                        <Link to="/api/signup">가입하기</Link>
+>>>>>>> c0c96609b0685ed15d3b62f86c619be61f488020
                     </Styled.ButtonAsText>
                 </Styled.LinkText1>
             </Styled.LinkText>
