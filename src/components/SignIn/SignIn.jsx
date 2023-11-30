@@ -19,11 +19,17 @@ function SignIn({ onLogin, onClose }) {
                     email,
                     password,
                 })
+                const name = response.data.userName
+                const nickname = response.data.nickname
+
+                console.log('name', name)
                 const data = response.data.accessToken
                 const token = data.split(' ')[1]
                 console.log(token)
 
                 localStorage.setItem('accessToken', token)
+                localStorage.setItem('name', name)
+                localStorage.setItem('nickname', nickname)
 
                 console.log('token', token)
 

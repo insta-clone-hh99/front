@@ -5,6 +5,8 @@ import { Portal } from 'react-portal'
 import NewPostModal from '../../Modal/NewPostModal/NewPostModal'
 import { useNavigate } from 'react-router-dom'
 
+const nickname = localStorage.getItem('nickname')
+
 const navigationBar = [
     { title: '홈', url: '/home.png' },
     { title: '검색', url: '/zoom.png' },
@@ -13,7 +15,7 @@ const navigationBar = [
     { title: '메시지', url: '/message.png' },
     { title: '알림', url: '/heart.png' },
     { title: '만들기', url: '/plus.png' },
-    { title: '프로필', url: '/profile.png' },
+    { title: nickname, url: '/profile.png' },
 ]
 
 export default function LayoutNavigation() {

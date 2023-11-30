@@ -23,6 +23,7 @@ export default function NewPostModal({ setIsOpenFirstModal, onClose }) {
     const addPostMutation = useMutation(addPost, {
         onSuccess: () => {
             queryClient.invalidateQueries('post')
+            alert('글이 성공적으로 등록 됐습니다.')
         },
     })
 

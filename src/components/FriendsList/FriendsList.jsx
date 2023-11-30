@@ -2,6 +2,7 @@ import React from 'react'
 import * as S from './style'
 
 export default function FriendsList({ friednsList, name }) {
+
     const onClickFollowBtn = () => {}
     return (
         <S.Wrapper>

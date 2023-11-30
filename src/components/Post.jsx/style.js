@@ -15,6 +15,7 @@ export const PostWrapper = styled.div`
     margin: 50px 0px;
     background-color: black;
     margin-left: 300px;
+    border-bottom: 1px solid gray;
 `
 
 export const ProfileImage = styled.img`

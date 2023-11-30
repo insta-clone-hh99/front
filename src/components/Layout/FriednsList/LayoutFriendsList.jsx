@@ -12,6 +12,8 @@ const friednsList = [
 ]
 
 export default function LayoutFriendsList() {
+    const userName = localStorage.getItem('name')
+    const nickname = localStorage.getItem('nickname')
     return (
         <div style={{ display: 'block' }}>
             <S.RightWrapper>
@@ -19,8 +21,8 @@ export default function LayoutFriendsList() {
                     <S.ImageInfos>
                         <S.RightProfileImage src="/avatar.png" alt="이미지" />
                         <S.SubInfoWrapper>
-                            <S.Myprofile>Ironmin_</S.Myprofile>
-                            <S.SubInfo>주철민</S.SubInfo>
+                            <S.Myprofile>{nickname}</S.Myprofile>
+                            <S.SubInfo>{userName}</S.SubInfo>
                         </S.SubInfoWrapper>
                     </S.ImageInfos>
                     <S.ChangeText> 전환 </S.ChangeText>
