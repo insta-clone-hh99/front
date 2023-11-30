@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useMutation } from 'react-query'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import * as Styled from './style'
 import InstagramLogo from '../../assets/insta-rogo-text.jpeg'
@@ -9,6 +9,7 @@ import Down from '../../assets/down.jpeg'
 import Face from '../../assets/facebook.jpeg'
 
 function Signup() {
+    const navigate = useNavigate()
     const [email, setEmail] = useState('')
     const [password, setPassWord] = useState('')
     const [userName, setUserName] = useState('')
@@ -32,7 +33,7 @@ function Signup() {
                 console.log('등록 후 응답:', response)
 
                 if (response.status === 200) {
-                    alert('회원가입이 완료되었습니다.');
+                    alert('회원가입이 완료되었습니다.')
                     console.log('회원가입 완료:', response.data)
                 }
                 console.log('서버의 응답:', response.data)
@@ -88,9 +89,9 @@ function Signup() {
         }
 
         if (!nickname || nickname.length < 1 || nickname.length > 5) {
-            setErrorMessages(['닉네임은 1~5자리로 입력해주세요.']);
-            alert('닉네임은 1~5자리로 입력해주세요.');
-            return;
+            setErrorMessages(['닉네임은 1~5자리로 입력해주세요.'])
+            alert('닉네임은 1~5자리로 입력해주세요.')
+            return
         }
 
         try {
@@ -107,6 +108,7 @@ function Signup() {
                 console.log('회원가입이 완료되었습니다.', response.data)
                 alert('회원가입이 완료되었습니다.', response.data)
             }
+            navigate('/login')
         } catch (error) {
             console.log('회원가입 오류 다시 작성해주세요.', error)
 

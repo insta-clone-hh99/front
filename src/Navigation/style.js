@@ -21,13 +21,14 @@ export const Wrapper = styled.div`
 `
 
 export const ImgStyle = styled.img`
-    width: 35px;
-    height: 30px;
+    width: 40px;
+    height: 35px;
     margin: 0 10px;
     &:hover {
         width: 38px;
         height: 38px;
     }
+    border-radius: 20px;
 `
 
 export const NavTitle = styled.p`

@@ -6,6 +6,7 @@ import NewPostModal from '../../Modal/NewPostModal/NewPostModal'
 import { useNavigate } from 'react-router-dom'
 
 const nickname = localStorage.getItem('nickname')
+const profileImage = localStorage.getItem('image')
 
 const navigationBar = [
     { title: '홈', url: '/home.png' },
@@ -15,7 +16,7 @@ const navigationBar = [
     { title: '메시지', url: '/message.png' },
     { title: '알림', url: '/heart.png' },
     { title: '만들기', url: '/plus.png' },
-    { title: nickname, url: '/profile.png' },
+    { title: nickname, url: profileImage },
 ]
 
 export default function LayoutNavigation() {
@@ -25,13 +26,13 @@ export default function LayoutNavigation() {
         setIsOpenFirstModal((prev) => !prev)
     }
 
-    const onClickThreads = () => {
-        navigate('https://www.threads.net/login')
+    const onClickLogo = () => {
+        navigate('/')
     }
 
     return (
         <S.NavigationBar>
-            <S.LogoStyle src="/logo.png" alt="로고" />
+            <S.LogoStyle onClick={onClickLogo} src="/logo.png" alt="로고" />
             <S.NavCategoryWrapper>
                 {navigationBar.map((data) => (
                     <Navigation firstModalToggle={firstModalToggle} data={data} />
@@ -39,7 +40,7 @@ export default function LayoutNavigation() {
             </S.NavCategoryWrapper>
             <div>
                 <S.NavCategoryStyle>
-                    <S.NavImageStyle onClick={onClickThreads} src="/threads.png" alt="threads" />
+                    <S.NavImageStyle src="/threads.png" alt="threads" />
                     <S.NavCategoryTitle>Threads</S.NavCategoryTitle>
                 </S.NavCategoryStyle>
                 <S.NavCategoryStyle>

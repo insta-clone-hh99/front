@@ -23,6 +23,10 @@ export const ImageInfos = styled.div`
 
 export const RightProfileImage = styled.img`
     margin-right: 15px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    cursor: pointer;
 `
 
 export const SubInfoWrapper = styled.div`

@@ -86,6 +86,8 @@ function SignIn({ onLogin, onClose }) {
 
         try {
             await loginMutation.mutateAsync({ email, password })
+            alert('로그인이 성공적으로 됐습니다.')
+            navigate('/')
         } catch (error) {
             console.log(error)
         }

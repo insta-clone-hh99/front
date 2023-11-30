@@ -15,6 +15,7 @@ export const LogoStyle = styled.img`
     width: 120px;
     height: 50px;
     margin: 20px;
+    cursor: pointer;
 `
 
 export const NavCategoryWrapper = styled.div`

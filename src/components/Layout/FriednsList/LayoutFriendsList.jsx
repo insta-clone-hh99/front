@@ -1,6 +1,7 @@
 import React from 'react'
 import * as S from './style'
 import FriendsList from '../../FriendsList/FriendsList'
+import { useNavigate } from 'react-router-dom'
 
 const friednsList = [
     { name: '신짱구', url: '/jjangu.jpeg' },
@@ -12,14 +13,22 @@ const friednsList = [
 ]
 
 export default function LayoutFriendsList() {
+    const navigate = useNavigate()
+    const profile = localStorage.getItem('image')
+
     const userName = localStorage.getItem('name')
     const nickname = localStorage.getItem('nickname')
+    const onClickProfile = () => {
+        navigate('/mypage')
+    }
+
     return (
         <div style={{ display: 'block' }}>
             <S.RightWrapper>
                 <S.RightWrapperHeader>
                     <S.ImageInfos>
-                        <S.RightProfileImage src="/avatar.png" alt="이미지" />
+                        {!profile && <S.RightProfileImage onClick={onClickProfile} src="/avatar.png" alt="이미지" />}
+                        {profile && <S.RightProfileImage onClick={onClickProfile} src={profile} alt="이미지" />}
                         <S.SubInfoWrapper>
                             <S.Myprofile>{nickname}</S.Myprofile>
                             <S.SubInfo>{userName}</S.SubInfo>
