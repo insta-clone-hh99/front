@@ -22,21 +22,9 @@ function SignIn({ onLogin, onClose }) {
                     email,
                     password,
                 })
-                const name = response.data.userName
-                const nickname = response.data.nickname
+                const token = response.data.accessToken
 
-                console.log('name', name)
-                const data = response.data.accessToken
-                const token = data.split(' ')[1]
-                console.log(token)
-
-                localStorage.setItem('accessToken', token)
-                localStorage.setItem('name', name)
-                localStorage.setItem('nickname', nickname)
-
-                console.log('token', token)
-
-                console.log('로그인 응답:', response)
+                console.log('로그인 응답:', response.data)
                 return token
             } catch (error) {
                 throw error
@@ -52,8 +40,8 @@ function SignIn({ onLogin, onClose }) {
                     }
 
                     console.log('로그인 성공:', token)
+                    alert('로그인이 성공적으로 완료되었습니다.')
 
-                    onClose()
                     navigate('/')
                 } catch (error) {}
             },
@@ -86,11 +74,14 @@ function SignIn({ onLogin, onClose }) {
 
         try {
             await loginMutation.mutateAsync({ email, password })
-            alert('로그인이 성공적으로 됐습니다.')
-            navigate('/')
         } catch (error) {
             console.log(error)
         }
+    }
+
+    const logout = () => {
+        sessionStorage.removeItem('accessToken')
+        navigate('/login')
     }
 
     return (
@@ -119,6 +110,9 @@ function SignIn({ onLogin, onClose }) {
                             />
                             <Styled.Button type="button" onClick={onLoginHandler}>
                                 로그인
+                            </Styled.Button>
+                            <Styled.Button type="button" onClick={logout}>
+                                로그아웃
                             </Styled.Button>
                             <Styled.Img1 src={tto} alt="iPhone"></Styled.Img1>
                         </Styled.FlexCenter>
