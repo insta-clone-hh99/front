@@ -6,6 +6,9 @@ export const NavigationBar = styled.div`
     border-right: 1px solid gray;
     justify-content: space-between;
     width: 330px;
+    position: fixed;
+    background-color: black;
+    height: 100%;
 `
 
 export const LogoStyle = styled.img`

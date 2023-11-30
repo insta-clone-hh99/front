@@ -42,12 +42,10 @@ function SignIn({ onLogin, onClose }) {
                     }
 
                     console.log('로그인 성공:', token)
-                    alert('로그인이 성공적으로 완료되었습니다.')
 
                     onClose()
                 } catch (error) {
                     console.error('로그인 실패:', error)
-                    alert('로그인에 실패했습니다. 아이디와 비밀번호를 확인하세요.')
                 }
             },
             onError: (error) => {

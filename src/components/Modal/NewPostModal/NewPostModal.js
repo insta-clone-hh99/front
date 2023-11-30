@@ -7,16 +7,17 @@ import { useMutation, useQueryClient } from 'react-query'
 import { addPost } from '../../API/api'
 import { v4 as uuidv4 } from 'uuid'
 import EmojiPicker from 'emoji-picker-react'
-
+import { checkValidationFile } from '../../../utils/ImageValidation'
 
 export default function NewPostModal({ setIsOpenFirstModal, onClose }) {
     const [isActive, setIsActive] = useState(false)
     const [imageUrl, setImageUrl] = useState('')
     const [isSecondModalAcitve, setIsSecondModalActive] = useState(false)
     const [isChanged, setIsChanged] = useState(false)
-    const [contents, setConetns] = useState('')
+    const [content, setConetn] = useState('')
     const [isEmoji, setIsEmoji] = useState('')
     const buttonRef = useRef()
+    const [selectedImage, setSelectedImage] = useState('')
 
     const queryClient = useQueryClient()
     const addPostMutation = useMutation(addPost, {
@@ -31,7 +32,11 @@ export default function NewPostModal({ setIsOpenFirstModal, onClose }) {
         }
     }
     const onChangeImage = (event) => {
+        setSelectedImage(event.target.files?.[0])
         const file = event.target.files?.[0]
+        if (!checkValidationFile(file)) {
+            return
+        }
         const fileReader = new FileReader()
         fileReader.readAsDataURL(file)
         fileReader.onload = (event) => {
@@ -42,16 +47,15 @@ export default function NewPostModal({ setIsOpenFirstModal, onClose }) {
 
     const submitNewPost = () => {
         const newPost = {
-            postId: uuidv4(),
-            contents,
-            imageUrl,
+            content,
+            images: selectedImage,
         }
         addPostMutation.mutate(newPost)
         setIsOpenFirstModal((prev) => !prev)
     }
 
     const onChangeConetens = (event) => {
-        setConetns(event.target.value)
+        setConetn(event.target.value)
     }
 
     const onClickSecondModal = () => {
@@ -68,11 +72,11 @@ export default function NewPostModal({ setIsOpenFirstModal, onClose }) {
 
     const onClickSmile = (emojiData) => {
         // 이모지를 textarea에 추가
-        setConetns((prevContents) => prevContents + emojiData.emoji)
+        setConetn((prevContents) => prevContents + emojiData.emoji)
         setIsEmoji((prev) => !prev)
         console.log(emojiData)
     }
-    console.log('contents', contents)
+    console.log('contents', content)
 
     return (
         <div className="modal" onClick={handleOverlayClick}>
@@ -140,7 +144,7 @@ export default function NewPostModal({ setIsOpenFirstModal, onClose }) {
                                                 <S.Nickname>주철민</S.Nickname>
                                             </S.HeaderWrapper>
                                             <S.ContentsTextArea
-                                                value={contents}
+                                                value={content}
                                                 placeholder="문구를 입력하세요..."
                                                 onChange={onChangeConetens}
                                             />
@@ -153,7 +157,7 @@ export default function NewPostModal({ setIsOpenFirstModal, onClose }) {
                                                         placeholder="Type a message"
                                                     />
                                                 )}
-                                                <S.CheckTextLength>{contents.length}/2200</S.CheckTextLength>
+                                                <S.CheckTextLength>{content.length}/2200</S.CheckTextLength>
                                             </S.FooterWrapper>
                                         </div>
                                     </div>

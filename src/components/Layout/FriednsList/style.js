@@ -7,6 +7,8 @@ export const RightWrapper = styled.div`
     width: 270px;
     margin-top: 50px;
     height: 600px;
+    position: fixed;
+    margin-left: 300px;
 `
 
 export const RightWrapperHeader = styled.div`

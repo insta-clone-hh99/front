@@ -7,12 +7,9 @@ Styled.Content = styled.div`
     justify-content: center;
     align-items: center;
     height: 100vh;
-    border: 1px solid #dbdbdb;
-    margin: 0 0 10px 0;
-    padding: 10px 0 10px 0;
+    margin: 0 0 0 0;
     background-color: white;
     width: 100vw;
-
 `
 
 Styled.Lgtitle = styled.div`

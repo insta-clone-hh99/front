@@ -7,6 +7,7 @@ import { GoHeartFill } from 'react-icons/go'
 import { BsFillSaveFill } from 'react-icons/bs'
 import { BsThreeDots } from 'react-icons/bs'
 import { CgSmile } from 'react-icons/cg'
+import EmojiPicker from 'emoji-picker-react'
 
 export const PostWrapper = styled.div`
     width: 470px;
@@ -14,6 +15,7 @@ export const PostWrapper = styled.div`
     border: 1px black solid;
     margin: 50px 0px;
     background-color: black;
+    margin-left: 300px;
 `
 
 export const ProfileImage = styled.img`
@@ -123,4 +125,16 @@ export const PostFooter = styled.div`
     display: flex;
     flex-direction: row;
     width: 470px;
+`
+
+export const Emoji = styled(EmojiPicker)`
+    width: 100px;
+    height: 600px;
+`
+
+export const CommentText = styled.span`
+    color: #a8a8a8;
+    margin: 10px 0;
+    font-size: 14px;
+    cursor: pointer;
 `
