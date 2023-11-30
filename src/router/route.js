@@ -7,6 +7,7 @@ import Login from '../components/Login/Login'
 import SignIn from '../components/SignIn/SignIn'
 import Signup from '../components/Signup/Signup'
 import Layout from '../components/Layout/Layout'
+import Mypage from '../components/Mypage/Mypage'
 // import ThirdModal from '../components/Modal/ThirdPostModal/ThirdPostModal'
 
 function Router() {
@@ -21,6 +22,7 @@ function Router() {
                     <Route path="/api/posts/new" element={<NewPost />} />
                     <Route path="/login" element={<SignIn />} />
                     <Route path="/signup" element={<Signup />} />
+                    <Route path="/mypage" element={<Mypage />} />
                 </Route>
             </Routes>
         </BrowserRouter>

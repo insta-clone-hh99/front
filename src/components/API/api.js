@@ -4,7 +4,11 @@ import axios from 'axios'
 
 export const addPost = async (newPost) => {
     try {
-        const response = await axios.post(`${process.env.REACT_APP_SERVER_URL_2}/api/posts`, newPost)
+        const response = await axios.post(`${process.env.REACT_APP_SERVER_URL_2}/api/posts`, newPost, {
+            headers: {
+                Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
+            },
+        })
         console.log(response)
         return response.data
     } catch (error) {
@@ -37,7 +41,6 @@ export const getOnePostInfo = async (postId) => {
     } catch (error) {}
 }
 
-
 //댓글
 
 export const getComments = async (postId) => {
@@ -63,7 +66,7 @@ export const addComment = async (target) => {
             target.comment,
             {
                 headers: {
-                    Authorization: `Bearer ${target.userToken}`,
+                    Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
                 },
             },
         )
@@ -90,4 +93,15 @@ export const cancelHeart = async (target) => {
             },
         })
     } catch (error) {}
+}
+
+// 마이페이지 api!!!!!!!!!!!!!!!!!!!!
+export const getPosts = async () => {
+    try {
+        const response = await axios.get(`${process.env.REACT_APP_SERVER_URL_2}/api/posts`)
+        return response.data
+    } catch (error) {
+        console.error('Error getting posts:', error)
+        throw error
+    }
 }

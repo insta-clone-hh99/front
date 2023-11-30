@@ -8,6 +8,7 @@ export default function Layout() {
     const { pathname } = useLocation()
     const isLoginPage = pathname === '/login'
     const isSignUpPage = pathname === '/signup'
+    const isMyPage = pathname === '/mypage'
 
     return (
         <S.Wrapper>
@@ -23,7 +24,7 @@ export default function Layout() {
             >
                 <Outlet />
             </div>
-            {!isLoginPage && !isSignUpPage && <LayoutFriendsList />}
+            {!isLoginPage && !isSignUpPage && !isMyPage && <LayoutFriendsList />}
         </S.Wrapper>
     )
 }
