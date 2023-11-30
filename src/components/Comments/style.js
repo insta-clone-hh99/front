@@ -100,3 +100,9 @@ export const HeartWrapper = styled.div`
     align-items: center;
     height: 30px;
 `
+
+export const ContentWrapper = styled.div`
+    display: flex;
+    flex: auto;
+    margin-bottom: 20px;
+`

@@ -11,5 +11,13 @@ export const TitleAndTimeWrapper = styled.div`
     height: 100vh;
     display: flex;
     flex-direction: column;
+    margin-left: 550px;
+    margin-top: 20px;
+`
+
+export const ImageStyle = styled.img`
+    width: 200px;
+    height: 100px;
     margin-left: 300px;
+    cursor: pointer;
 `

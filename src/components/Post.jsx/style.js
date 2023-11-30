@@ -12,7 +12,6 @@ import EmojiPicker from 'emoji-picker-react'
 export const PostWrapper = styled.div`
     width: 470px;
     height: 841px;
-    border: 1px black solid;
     margin: 50px 0px;
     background-color: black;
     margin-left: 300px;
@@ -40,6 +39,7 @@ export const PostHeaerWrapper = styled.div`
 export const ImageSize = styled.img`
     width: 470px;
     height: 570px;
+    border: 1px #a8a8a8 solid;
 `
 
 export const Wrapper = styled.div`

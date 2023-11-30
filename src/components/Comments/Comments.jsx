@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import * as S from './style'
 import { useQuery } from 'react-query'
-import { getComments } from '../API/api'
+import { getComments, getOnePostInfo } from '../API/api'
 import { TimeAndDate } from '../../utils/time'
 import FifthPostModal from '../Modal/FifthPostModal/FifthPostModal'
 import { Portal } from 'react-portal'
@@ -12,12 +12,12 @@ export default function Comments() {
     const [isHeart, setIsHeart] = useState(false)
     const [isActive, setIsActive] = useState(false)
 
-    const postId = parseInt(params.postId)
-
+    const { data: posts } = useQuery('posts', () => getOnePostInfo(params.postId))
     const { data } = useQuery('comment', () => getComments(params.postId))
+
     console.log('data입니다', data)
 
-    console.log(data, 'data')
+    console.log('posts입니다', posts.data)
 
     const onClickMoreInfo = () => {
         setIsActive(true)
@@ -29,6 +29,11 @@ export default function Comments() {
     return (
         <S.Wrapper>
             <S.ContentsWrapper>
+                <S.ContentWrapper>
+                    <S.ImageStyle src="/avatar.png" alt="엑박" />
+                    <S.CommentStyle>{posts.data.userName}</S.CommentStyle>
+                    <S.CommentStyle>{posts.data.contents}</S.CommentStyle>
+                </S.ContentWrapper>
                 {data?.map((el) => (
                     <div style={{ display: 'flex', flexDirection: 'row', marginBottom: '20px' }}>
                         <S.LeftWrapper>
