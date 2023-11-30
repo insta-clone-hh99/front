@@ -66,7 +66,7 @@ export const addComment = async (target) => {
             target.comment,
             {
                 headers: {
-                    Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+                    Authorization: `Bearer ${localStorage.getItem('accessToken')}`,
                 },
             },
         )
@@ -93,4 +93,15 @@ export const cancelHeart = async (target) => {
             },
         })
     } catch (error) {}
+}
+
+// 마이페이지 api!!!!!!!!!!!!!!!!!!!!
+export const getPosts = async () => {
+    try {
+        const response = await axios.get(`${process.env.REACT_APP_SERVER_URL_2}/api/posts`)
+        return response.data
+    } catch (error) {
+        console.error('Error getting posts:', error)
+        throw error
+    }
 }
