@@ -2,61 +2,67 @@ import styled from 'styled-components'
 
 const Styled = {}
 
-Styled.Content = styled.div`
+Styled.Back = styled.div`
+    background-color: #ffffff;
+    height: 100vh;
+    width: 100vw;
     display: flex;
+    align-items: center;
     justify-content: center;
+`
+
+Styled.Wrap = styled.div`
+    display: flex;
+    flex-direction: row;
     align-items: center;
     height: 100vh;
-    margin: 0 0 0 0;
+    border: 1px solid #dbdbdb;
+    margin: 0 0 10px 0;
+    padding: 10px 0 10px 0;
     background-color: white;
     width: 100vw;
+
 `
 
 Styled.Lgtitle = styled.div`
-    text-align: center;
-    border: 1px solid #dbdbdb;
-    margin: 0 0 0 0;
-    padding: 70px 0;
-    line-height: 1.5;
+    margin-bottom: 20px;
 `
 
 Styled.Span = styled.span`
     display: flex;
     align-items: center;
-    margin: center;
     justify-content: center;
 
     & img {
-        width: 175px;
-        height: auto;
+        width: 195px;
+        height: 90px;
         margin-right: 10px;
     }
 `
 
 Styled.FlexCenter = styled.div`
     display: flex;
+    width: 100%;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     margin-top: 1rem;
 
     & > ${Styled.Input} {
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.2rem;
     }
 
     & > ${Styled.Button} {
-        margin-top: 0.5rem;
+        margin-bottom: 0.2rem;
     }
 `
 
 Styled.Input = styled.input`
     padding: 0.5rem;
-    margin: 0.5rem;
+    margin: 0.3rem;
     border: 1px solid #dbdbdb;
     border-radius: 3px;
     outline: none;
-    width: 45vh;
-    height: 50px;
     padding: 9px 0 7px 8px;
     background-color: #fafafa;
     font-size: 12px;
@@ -65,6 +71,7 @@ Styled.Input = styled.input`
     display: block;
     overflow: hidden;
     text-align: left;
+    width: 33.55vh;
     cursor: default;
 
     &::placeholder {
@@ -76,13 +83,14 @@ Styled.Button = styled.button`
     background-color: #3898f3;
     color: #fff;
     padding: 0.5rem 1rem;
+    margin: 0.3rem;
     border: none;
     border-radius: 7px;
     font-size: 1rem;
     cursor: pointer;
     outline: none;
-    width: 46.3vh;
-    padding: 8px 40px 8px 40px;
+    width: 34.88vh;
+    height: 4vh;
     font-weight: bold;
 
     &:hover {
@@ -91,18 +99,22 @@ Styled.Button = styled.button`
 `
 
 Styled.LinkText = styled.div`
-    border: 1px solid #dbdbdb;
-    margin: 0 0 20px 0;
-    padding: 10px 0 10px 0;
-    position: absolute;
-    bottom: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 48vh;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #737373;
+    transition:
+        opacity 0.3s,
+        filter 0.3s;
+
+    &:hover {
+        opacity: opacity 0.5s linear;
+        filter: brightness(100%);
+        cursor: pointer;
+    }
+
+    &:active {
+        opacity: 0.6;
+    }
 `
 
 Styled.LinkText1 = styled.div`
@@ -134,6 +146,33 @@ Styled.ErrorContainer = styled.div`
 Styled.ErrorText = styled.p`
     color: red;
     font-size: 14px;
+`
+
+Styled.Img = styled.img`
+    width: 67%;
+    height: auto;
+    max-width: 100%;
+    margin-bottom: 20px;
+`
+
+Styled.Img1 = styled.img`
+    width: 130%;
+    height: auto;
+    max-width: 100%;
+    margin-bottom: 20px;
+    transition:
+        opacity 0.3s,
+        filter 0.3s;
+
+    &:hover {
+        opacity: opacity 0.5s linear;
+        filter: brightness(100%);
+        cursor: pointer;
+    }
+
+    &:active {
+        opacity: 0.6;
+    }
 `
 
 export default Styled

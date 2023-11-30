@@ -136,3 +136,14 @@ export const cancelHeart = async (postId) => {
         // 오류 처리 코드 추가
     }
 }
+
+// 마이페이지 api!!!!!!!!!!!!!!!!!!!!
+export const getPosts = async () => {
+    try {
+        const response = await axios.get(`${process.env.REACT_APP_SERVER_URL_2}/api/posts`)
+        return response.data
+    } catch (error) {
+        console.error('Error getting posts:', error)
+        throw error
+    }
+}
