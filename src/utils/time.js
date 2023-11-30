@@ -11,7 +11,6 @@ export const TimeAndDate = (publishedAt) => {
 export const TimeStyle = styled.p`
     margin-top: 0px;
     margin-bottom: 0px;
-    margin-left: 10px;
     color: gray;
     font-size: 13px;
 `

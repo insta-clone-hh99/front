@@ -13,15 +13,7 @@ export default function Layout() {
     return (
         <S.Wrapper>
             {!isLoginPage && !isSignUpPage && <LayoutNavigation />}
-            <div
-                style={{
-                    width: '100vw',
-                    height: '100vh',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                }}
-            >
+            <div>
                 <Outlet />
             </div>
             {!isLoginPage && !isSignUpPage && !isMyPage && <LayoutFriendsList />}

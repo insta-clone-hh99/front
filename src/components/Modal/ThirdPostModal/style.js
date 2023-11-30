@@ -15,7 +15,7 @@ export const Wrapper = styled.div`
     left: 0;
     top: 0;
     width: 1920px;
-    height: 880px;
+    height: 923px;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.4);
     display: flex;
@@ -27,13 +27,16 @@ export const Wrapper = styled.div`
 export const ModalContent = styled.div`
     background-color: black;
     width: 1200px;
-    height: 880px;
+    height: 860px;
+    margin-bottom: 50px;
     display: flex;
     flex-direction: row;
+    border: 2px gray solid;
+    
 `
 export const ImageSize = styled.img`
     width: 750px;
-    height: 880px;
+    height: 860px;
 `
 
 export const RightHeader = styled.div`
@@ -179,5 +182,21 @@ export const SmileIcon = styled(FaRegFaceSmile)`
 
 export const SubmitText = styled.span`
     color: gray;
+    margin-left: 10px;
+`
+
+export const ButtonStyle = styled.button`
+    background-color: black;
+    color: gray;
+    border: 0;
+    cursor: pointer;
+    margin-left: 10px;
+`
+
+export const LightButton = styled.button`
+    background-color: black;
+    color: skyblue;
+    border: 0;
+    cursor: pointer;
     margin-left: 10px;
 `

@@ -8,10 +8,11 @@ export default function Home() {
     const { data: rrr } = useQuery('post', getPost)
 
     const postData = rrr?.data
-    console.log("rrr",rrr)
+    console.log('rrr', rrr)
     return (
         <S.Wrapper>
             <S.TitleAndTimeWrapper>
+                <S.ImageStyle src="/story.png" alt="스토리" />
                 {postData?.map((post) => (
                     <Post post={post} />
                 ))}

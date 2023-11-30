@@ -1,5 +1,6 @@
 import React from 'react'
 import * as S from './style'
+import { useNavigate } from 'react-router-dom'
 
 const Title = [
     { title: '신고', color: 'orangered' },
@@ -13,10 +14,16 @@ const Title = [
     { title: '취소', border: '0' },
 ]
 
-export default function FourthPostModal({ onClickMoreInfo, setIsActive, onclose }) {
+export default function FourthPostModal({ setIsActive }) {
     const handleOverlayClick = (e) => {
         if (e.target.classList.contains('modal')) {
-            onClickMoreInfo()
+            setIsActive((prev) => !prev)
+        }
+    }
+
+    const onClickButton = (title) => () => {
+        if (title === '취소') {
+            setIsActive((prev) => !prev)
         }
     }
 
@@ -24,7 +31,7 @@ export default function FourthPostModal({ onClickMoreInfo, setIsActive, onclose 
         <S.Wrapper className="modal" onClick={handleOverlayClick}>
             <S.ModalContent>
                 {Title.map((title) => (
-                    <S.TitleSWrapper border={title.border}>
+                    <S.TitleSWrapper onClick={onClickButton(title.title)} border={title.border}>
                         <S.TitleStyle color={title.color}>{title.title}</S.TitleStyle>
                     </S.TitleSWrapper>
                 ))}

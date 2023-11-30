@@ -4,8 +4,8 @@
     z-index: 1000;
     left: 0;
     top: 0;
-    width: 1920px;
-    height: 900px;
+    width: 100vw;
+    height: 100vh;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.4);
     display: flex;

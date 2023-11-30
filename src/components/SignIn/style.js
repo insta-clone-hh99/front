@@ -15,20 +15,13 @@ Styled.Wrap = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-    max-width: 600px;
-    width: 100%;
-    margin: 0 auto;
-`
-
-Styled.Content = styled.div`
-    background-color: #fff;
+    height: 100vh;
     border: 1px solid #dbdbdb;
-    padding: 20px;
-    text-align: center;
-    flex-grow: 1;
-    margin-left: 20px;
-    width: 80vw;
+    margin: 0 0 10px 0;
+    padding: 10px 0 10px 0;
+    background-color: white;
+    width: 100vw;
+
 `
 
 Styled.Lgtitle = styled.div`

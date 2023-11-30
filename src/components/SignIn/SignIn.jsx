@@ -40,7 +40,6 @@ function SignIn({ onLogin, onClose }) {
                     }
 
                     console.log('로그인 성공:', token)
-                    alert('로그인이 성공적으로 완료되었습니다.')
 
                     onClose()
                     navigate('/')

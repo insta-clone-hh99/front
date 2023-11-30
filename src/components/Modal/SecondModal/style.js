@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
     left: 0;
     top: 0;
     width: 1920px;
-    height: 900px;
+    height: 923px;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.4);
     display: flex;
