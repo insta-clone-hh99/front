@@ -11,7 +11,7 @@ export const TitleAndTimeWrapper = styled.div`
     height: 100vh;
     display: flex;
     flex-direction: column;
-    margin-left: 550px;
+    margin-left: 420px;
     margin-top: 20px;
 `
 

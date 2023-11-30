@@ -69,7 +69,6 @@ export default function Post({ post }) {
             <S.HeaderWrapper>
                 {isModalOpen && (
                     <Portal node={document && document.getElementById('modal-root')}>
-                        <Comments />
                         <SixPostModal post={post} setIsModalOpen={setIsModalOpen} />
                     </Portal>
                 )}
@@ -100,7 +99,7 @@ export default function Post({ post }) {
                     </div>
                 </S.ImgBar>
                 <S.PostContentsWrapper>
-                    <S.TextStyle>hm_son7님 여러 명이 좋아합니다</S.TextStyle>
+                    <S.TextStyle>좋아요 {post.likeCount}개</S.TextStyle>
                     <div>
                         <S.TextStyle>{post.userName}</S.TextStyle>
                         <S.TextStyle>{post.contents}</S.TextStyle>

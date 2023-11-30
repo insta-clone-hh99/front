@@ -32,6 +32,7 @@ export default function SixPostModal({ post, setIsModalOpen }) {
 
         if (name === '삭제') {
             deletePostMutation.mutate(post.postId)
+            setIsModalOpen((prev) => !prev)
         }
     }
     return (

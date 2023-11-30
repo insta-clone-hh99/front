@@ -32,7 +32,9 @@ export const deletePost = async (postId) => {
         return response
     } catch (error) {
         if (error.response) {
-            console.log(error)
+            if (error.response.status === 404) {
+                alert('해당 게시글 작성자가 아니면 삭제하실 수 없습니다.')
+            }
         }
     }
 }
@@ -75,7 +77,7 @@ export const deleteComment = async (target) => {
     } catch (error) {
         console.log('error', error)
         if (error.response) {
-            if (error.response.status === 500) {
+            if (error.response.status === 404) {
                 alert('해당 댓글 작성자가 아니면 삭제하실 수 없습니다.')
             }
         }

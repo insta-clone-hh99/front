@@ -76,6 +76,7 @@ export const ChatStyle = styled(IoChatbubbleOutline)`
 export const TextStyle = styled.span`
     color: white;
     margin: 10px 0;
+    font-weight: bolder;
 `
 
 export const PostContentsWrapper = styled.div`
